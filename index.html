@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四川广汉 - 世界三星堆·乐游在广汉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" as="image" href="images/optimized/轮放1-1920w.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/optimized/轮放1-1920w.avif" type="image/avif">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #5D7B6F;
+            --bronze-dark: #3D5A4F;
+            --bronze-light: #7B9B8F;
+            --gold: #C9A84C;
+            --gold-light: #E8D48B;
+            --cream: #F8F4E8;
+            --cream-dark: #EDE5D0;
+            --text-dark: #2C2C2C;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(61, 90, 79, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(61, 90, 79, 0.4) 0%,
+                rgba(61, 90, 79, 0.6) 50%,
+                rgba(61, 90, 79, 0.8) 100%
+            );
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.4);
+        }
+
+        .hero-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .hero-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-dot.active {
+            background: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .hero-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border: none;
+        }
+
+        .hero-arrow:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .hero-arrow.prev {
+            left: 30px;
+        }
+
+        .hero-arrow.next {
+            right: 30px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--bronze-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: var(--white);
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .overview-text h3 {
+            font-size: 1.8rem;
+            color: var(--bronze-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .overview-image {
+            position: relative;
+        }
+
+        .overview-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .overview-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .overview-badge i {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Sanxingdui Section */
+        .sanxingdui {
+            background: linear-gradient(135deg, var(--bronze-dark) 0%, var(--bronze) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sanxingdui::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="1"/></svg>') repeat;
+            background-size: 100px;
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        .sanxingdui .section-title {
+            color: var(--gold-light);
+        }
+
+        .sanxingdui .section-title::after {
+            background: var(--gold-light);
+        }
+
+        .sanxingdui .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .artifact-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .artifact-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+        }
+
+        .artifact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artifact-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold-light);
+        }
+
+        .artifact-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Attractions Section */
+        .attractions {
+            background: var(--cream);
+        }
+
+        .attractions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .attraction-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .attraction-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .attraction-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .attraction-card:hover .attraction-image img {
+            transform: scale(1.1);
+        }
+
+        .attraction-content {
+            padding: 25px;
+        }
+
+        .attraction-tag {
+            display: inline-block;
+            background: var(--cream);
+            color: var(--bronze);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .attraction-content h4 {
+            font-size: 1.3rem;
+            color: var(--bronze-dark);
+            margin-bottom: 10px;
+        }
+
+        .attraction-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .attraction-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gold);
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: gap 0.3s ease;
+        }
+
+        .attraction-link:hover {
+            gap: 10px;
+        }
+
+        /* Food Section */
+        .food {
+            background: var(--white);
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .food-card {
+            background: var(--cream);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .food-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bronze), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .food-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .food-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+        }
+
+        .food-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .food-card h4 {
+            font-size: 1.1rem;
+            color: var(--bronze-dark);
+            margin-bottom: 8px;
+        }
+
+        .food-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Culture Section */
+        .culture {
+            background: linear-gradient(135deg, var(--cream-dark) 0%, var(--cream) 100%);
+        }
+
+        .culture-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .culture-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .culture-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: calc(50% + 30px);
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .culture-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: calc(50% + 30px);
+        }
+
+        .culture-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1;
+        }
+
+        .culture-content {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .culture-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .culture-date {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .culture-content h4 {
+            font-size: 1.2rem;
+            color: var(--bronze-dark);
+            margin-bottom: 10px;
+        }
+
+        .culture-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Transport Section */
+        .transport {
+            background: var(--bronze-dark);
+            color: var(--white);
+        }
+
+        .transport .section-title {
+            color: var(--gold-light);
+        }
+
+        .transport .section-title::after {
+            background: var(--gold-light);
+        }
+
+        .transport .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .transport-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .transport-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .transport-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .transport-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--gold-light);
+        }
+
+        .transport-card p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: none;
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .artifacts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .food-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--bronze-dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .attractions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .culture-timeline::before {
+                left: 20px;
+            }
+
+            .culture-item {
+                padding-right: 0;
+                padding-left: 50px;
+                justify-content: flex-start;
+            }
+
+            .culture-item:nth-child(even) {
+                padding-left: 50px;
+            }
+
+            .culture-dot {
+                left: 20px;
+            }
+
+            .transport-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--white);
+        }
+
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .map-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--cream-dark);
+        }
+
+        .map-static-image {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .map-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bronze-dark);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            white-space: nowrap;
+        }
+
+        .map-link-btn:hover {
+            background: var(--gold);
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .map-info {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 20px;
+            height: fit-content;
+        }
+
+        .map-info h3 {
+            font-size: 1.8rem;
+            color: var(--bronze-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .map-info ul {
+            list-style: none;
+        }
+
+        .map-info li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .map-info li:last-child {
+            border-bottom: none;
+        }
+
+        .map-info i {
+            width: 40px;
+            height: 40px;
+            background: var(--bronze);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-landmark"></i>
+            </div>
+            <span class="logo-text">广汉</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#overview">城市概览</a></li>
+            <li><a href="#sanxingdui">三星堆文化</a></li>
+            <li><a href="#attractions">旅游景点</a></li>
+            <li><a href="#food">特色美食</a></li>
+            <li><a href="#culture">民俗文化</a></li>
+            <li><a href="#map">广汉区位</a></li>
+            <li><a href="#transport">交通指南</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <picture>
+                    <source srcset="images/optimized/轮放1-400w.avif 400w, images/optimized/轮放1-800w.avif 800w, images/optimized/轮放1-1200w.avif 1200w, images/optimized/轮放1-1920w.avif 1920w" sizes="100vw" type="image/avif">
+                    <source srcset="images/optimized/轮放1-400w.webp 400w, images/optimized/轮放1-800w.webp 800w, images/optimized/轮放1-1200w.webp 1200w, images/optimized/轮放1-1920w.webp 1920w" sizes="100vw" type="image/webp">
+                    <img src="images/轮放1.jpg" alt="广汉城市风光">
+                </picture>
+            </div>
+            <div class="hero-slide">
+                <picture>
+                    <source srcset="images/optimized/轮放2-400w.avif 400w, images/optimized/轮放2-800w.avif 800w, images/optimized/轮放2-1200w.avif 1200w, images/optimized/轮放2-1920w.avif 1920w" sizes="100vw" type="image/avif">
+                    <source srcset="images/optimized/轮放2-400w.webp 400w, images/optimized/轮放2-800w.webp 800w, images/optimized/轮放2-1200w.webp 1200w, images/optimized/轮放2-1920w.webp 1920w" sizes="100vw" type="image/webp">
+                    <img src="images/轮放2.jpg" alt="广汉美食牛杂火锅" loading="lazy">
+                </picture>
+            </div>
+            <div class="hero-slide">
+                <picture>
+                    <source srcset="images/optimized/轮放3-400w.avif 400w, images/optimized/轮放3-800w.avif 800w, images/optimized/轮放3-1200w.avif 1200w, images/optimized/轮放3-1920w.avif 1920w" sizes="100vw" type="image/avif">
+                    <source srcset="images/optimized/轮放3-400w.webp 400w, images/optimized/轮放3-800w.webp 800w, images/optimized/轮放3-1200w.webp 1200w, images/optimized/轮放3-1920w.webp 1920w" sizes="100vw" type="image/webp">
+                    <img src="images/轮放3.jpg" alt="金雁湖公园风光" loading="lazy">
+                </picture>
+            </div>
+            <div class="hero-slide">
+                <picture>
+                    <source srcset="images/optimized/轮放4-400w.avif 400w, images/optimized/轮放4-800w.avif 800w, images/optimized/轮放4-1200w.avif 1200w, images/optimized/轮放4-1920w.avif 1920w" sizes="100vw" type="image/avif">
+                    <source srcset="images/optimized/轮放4-400w.webp 400w, images/optimized/轮放4-800w.webp 800w, images/optimized/轮放4-1200w.webp 1200w, images/optimized/轮放4-1920w.webp 1920w" sizes="100vw" type="image/webp">
+                    <img src="images/轮放4.jpg" alt="房湖公园景色" loading="lazy">
+                </picture>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <button class="hero-arrow prev" id="heroPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-arrow next" id="heroNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="hero-content">
+            <h1 class="hero-title">世界三星堆 · 乐游在广汉</h1>
+            <p class="hero-subtitle">川西明珠 · 天府粮仓 · 成都后花园</p>
+            <a href="#overview" class="hero-btn">探索广汉</a>
+        </div>
+        <div class="hero-nav" id="heroNav">
+            <span class="hero-dot active" data-index="0"></span>
+            <span class="hero-dot" data-index="1"></span>
+            <span class="hero-dot" data-index="2"></span>
+            <span class="hero-dot" data-index="3"></span>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section overview" id="overview">
+        <div class="section-header">
+            <h2 class="section-title fade-in">川西明珠 · 天府粮仓</h2>
+            <p class="section-subtitle fade-in">三千年古蜀文明，一座城的前世今生</p>
+        </div>
+        <div class="overview-content">
+            <div class="overview-text fade-in-left">
+                <h3>广汉，一座有故事的城市</h3>
+                <p>广汉市位于"天府之国"成都平原腹心地带，南距省会成都市区19公里，北距德阳市城区19公里，是成都的"北大门"。广汉古称雒城、汉州，因"广至汉水"而得名，自古就有"益州门户、蜀省要衢、通京孔道"之说。</p>
+                <p>这里是三星堆文明的发源地，沉睡数千年、一醒惊天下，被誉为"长江文明之源"。从青铜神树到人面鸟身雕像，古蜀先民用非凡的想象力和创造力构筑起他们的"飞天"梦想。</p>
+                <p>今天的广汉，既是沉淀千年的历史博物馆，更是充满温度的生活剧场。这里守护着古蜀文明的根脉，也以一道道美食慰藉着当代人的胃与心。</p>
+            </div>
+            <div class="overview-image fade-in-right">
+                <picture>
+                    <source srcset="images/optimized/城市概况-400w.avif 400w, images/optimized/城市概况-800w.avif 800w, images/optimized/城市概况-1200w.avif 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/avif">
+                    <source srcset="images/optimized/城市概况-400w.webp 400w, images/optimized/城市概况-800w.webp 800w, images/optimized/城市概况-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+                    <img src="images/城市概况.jpg" alt="广汉城市概况" loading="lazy">
+                </picture>
+                <div class="overview-badge">
+                    <i class="fas fa-trophy"></i>
+                    <div>全国县域旅游<br>综合实力百强县</div>
+                </div>
+            </div>
+        </div>
+        <div class="stats-grid" style="max-width: 1200px; margin: 60px auto 0;">
+            <div class="stat-card fade-in">
+                <div class="stat-number">548</div>
+                <div class="stat-label">平方公里幅员面积</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">60万</div>
+                <div class="stat-label">常住人口</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">3000+</div>
+                <div class="stat-label">年历史传承</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">346万</div>
+                <div class="stat-label">年接待游客人次</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sanxingdui Section -->
+    <section class="section sanxingdui" id="sanxingdui">
+        <div class="section-header">
+            <h2 class="section-title fade-in">沉睡数千年 · 一醒惊天下</h2>
+            <p class="section-subtitle fade-in">三星堆——长江文明之源，世界第九大奇迹</p>
+        </div>
+        <div class="artifacts-grid">
+            <div class="artifact-card fade-in">
+                <div class="artifact-image">
+                    <img src="images/external/金面具和青铜大面具.jpg" alt="金面具和青铜大面具" loading="lazy">
+                </div>
+                <h4>金面具与青铜大面具</h4>
+                <p>金面具是目前三星堆出土最完整的金面具之一，青铜大面具是已知世界范围内体量最大的大型青铜面具</p>
+            </div>
+            <div class="artifact-card fade-in">
+                <div class="artifact-image">
+                    <img src="images/external/青铜面具.jpg" alt="青铜面具" loading="lazy">
+                </div>
+                <h4>青铜面具</h4>
+                <p>造型奇特神秘，是三星堆文明的代表性文物，展现了古蜀先民非凡的想象力</p>
+            </div>
+            <div class="artifact-card fade-in">
+                <div class="artifact-image">
+                    <img src="images/external/十节玉琮.jpg" alt="十节玉琮" loading="lazy">
+                </div>
+                <h4>十节玉琮</h4>
+                <p>精美玉器，体现了古蜀文明高超的玉石加工技艺</p>
+            </div>
+            <div class="artifact-card fade-in">
+                <div class="artifact-image">
+                    <img src="images/external/竖披发青铜人像.jpg" alt="竖披发青铜人像" loading="lazy">
+                </div>
+                <h4>竖披发青铜人像</h4>
+                <p>独特的造型展现了古蜀人的形象特征和审美观念</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section class="section attractions" id="attractions">
+        <div class="section-header">
+            <h2 class="section-title fade-in">探寻古蜀文明 · 畅游川西明珠</h2>
+            <p class="section-subtitle fade-in">这里有穿越时空的文化厚度，也有最鲜活的人间烟火</p>
+        </div>
+        <div class="attractions-grid">
+            <div class="attraction-card fade-in">
+                <div class="attraction-image">
+                    <img src="images/external/三星堆博物馆新馆外景.jpg" alt="三星堆博物馆新馆外景" loading="lazy">
+                </div>
+                <div class="attraction-content">
+                    <span class="attraction-tag">国家4A级景区</span>
+                    <h4>三星堆博物馆</h4>
+                    <p>位于广汉城西鸭子河畔，是西南地区最大的遗址类博物馆，馆藏文物1500余件</p>
+                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="attraction-card fade-in">
+                <div class="attraction-image">
+                    <picture>
+                        <source srcset="images/optimized/房湖公园-400w.avif 400w, images/optimized/房湖公园-800w.avif 800w, images/optimized/房湖公园-1200w.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" type="image/avif">
+                        <source srcset="images/optimized/房湖公园-400w.webp 400w, images/optimized/房湖公园-800w.webp 800w, images/optimized/房湖公园-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" type="image/webp">
+                        <img src="images/房湖公园.jpg" alt="房湖公园" loading="lazy">
+                    </picture>
+                </div>
+                <div class="attraction-content">
+                    <span class="attraction-tag">川西明珠</span>
+                    <h4>房湖公园</h4>
+                    <p>唐代名相房琯所建，园内古色古香，兼具苏州园林与巴蜀园林之特色</p>
+                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="attraction-card fade-in">
+                <div class="attraction-image">
+                    <picture>
+                        <source srcset="images/optimized/金雁湖-400w.avif 400w, images/optimized/金雁湖-800w.avif 800w, images/optimized/金雁湖-1200w.avif 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" type="image/avif">
+                        <source srcset="images/optimized/金雁湖-400w.webp 400w, images/optimized/金雁湖-800w.webp 800w, images/optimized/金雁湖-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" type="image/webp">
+                        <img src="images/金雁湖.jpg" alt="金雁湖公园" loading="lazy">
+                    </picture>
+                </div>
+                <div class="attraction-content">
+                    <span class="attraction-tag">市区最大公园</span>
+                    <h4>金雁湖公园</h4>
+                    <p>占地800余亩，三面环水，森林茂密，是"保保节"主会场之一</p>
+                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="attraction-card fade-in">
+                <div class="attraction-image">
+                    <img src="images/external/连山桃花山.jpg" alt="连山桃花山" loading="lazy">
+                </div>
+                <div class="attraction-content">
+                    <span class="attraction-tag">十大桃花胜地</span>
+                    <h4>连山桃花山</h4>
+                    <p>被《中国国家地理》评为十大桃花胜地，每年春季桃花盛开，美不胜收</p>
+                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="attraction-card fade-in">
+                <div class="attraction-image">
+                    <img src="images/external/雒城遗址.png" alt="雒城遗址" loading="lazy">
+                </div>
+                <div class="attraction-content">
+                    <span class="attraction-tag">全国重点文保</span>
+                    <h4>雒城遗址</h4>
+                    <p>东汉古城墙遗址，与鳞次栉比的高楼大厦隔街相望，见证千年历史兴衰</p>
+                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Section -->
+    <section class="section food" id="food">
+        <div class="section-header">
+            <h2 class="section-title fade-in">舌尖上的广汉</h2>
+            <p class="section-subtitle fade-in">从三星堆青铜的璀璨光芒，到连山回锅肉的锅气升腾</p>
+        </div>
+        <div class="food-grid">
+            <div class="food-card fade-in">
+                <div class="food-icon">
+                    <img src="images/external/连山回锅肉.jpg" alt="连山回锅肉" loading="lazy">
+                </div>
+                <h4>连山回锅肉</h4>
+                <p>非遗美食，片张薄大如手掌，肥而不腻，瘦而化渣，加入炸锅魁别具风味</p>
+            </div>
+            <div class="food-card fade-in">
+                <div class="food-icon">
+                    <img src="images/external/缠丝兔.jpg" alt="缠丝兔" loading="lazy">
+                </div>
+                <h4>缠丝兔</h4>
+                <p>传统手工艺，用细绳从颈部缠至后腿，味香浓郁，咸香适宜</p>
+            </div>
+            <div class="food-card fade-in">
+                <div class="food-icon">
+                    <picture>
+                        <source srcset="images/optimized/牛杂火锅-400w.avif 400w, images/optimized/牛杂火锅-800w.avif 800w" sizes="80px" type="image/avif">
+                        <source srcset="images/optimized/牛杂火锅-400w.webp 400w, images/optimized/牛杂火锅-800w.webp 800w" sizes="80px" type="image/webp">
+                        <img src="images/牛杂火锅.jpg" alt="向阳牛杂火锅" loading="lazy">
+                    </picture>
+                </div>
+                <h4>向阳牛杂火锅</h4>
+                <p>"敢为天下鲜"，从宰杀到上桌最快仅需1小时，鲜香嫩脆</p>
+            </div>
+            <div class="food-card fade-in">
+                <div class="food-icon">
+                    <img src="images/external/金丝面制作.png" alt="金丝面制作" loading="lazy">
+                </div>
+                <h4>金丝面</h4>
+                <p>省级非遗项目，面条细如发丝，气味浓香，制作技艺精湛</p>
+            </div>
+            <div class="food-card fade-in">
+                <div class="food-icon">
+                    <img src="images/external/广汉火锅食材产业.jpg" alt="广汉火锅食材产业" loading="lazy">
+                </div>
+                <h4>火锅食材</h4>
+                <p>全国最大火锅食材基地，年产值167亿元，80%火锅牛油产自广汉</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="section culture" id="culture">
+        <div class="section-header">
+            <h2 class="section-title fade-in">传承千年的民俗盛宴</h2>
+            <p class="section-subtitle fade-in">三百年的民俗传承，华夏民俗一绝</p>
+        </div>
+        <div class="culture-timeline">
+            <div class="culture-item fade-in">
+                <div class="culture-dot"></div>
+                <div class="culture-content">
+                    <span class="culture-date">农历正月十六</span>
+                    <h4>保保节</h4>
+                    <p>源于清代康熙年间，历经三百余年传承。家长为孩子寻找"保保"（干爹），寓意"百年长寿、百病不生、百事顺遂"。2007年被列入四川省非物质文化遗产名录。</p>
+                </div>
+            </div>
+            <div class="culture-item fade-in">
+                <div class="culture-dot"></div>
+                <div class="culture-content">
+                    <span class="culture-date">春节期间</span>
+                    <h4>三星堆新年大典</h4>
+                    <p>以真人大秀融汇声光电、新媒体技术手段，"复刻"古籍经典、"再现"古蜀礼乐，是广汉春节期间最隆重的祭祀祈福活动。</p>
+                </div>
+            </div>
+            <div class="culture-item fade-in">
+                <div class="culture-dot"></div>
+                <div class="culture-content">
+                    <span class="culture-date">惊蛰节后</span>
+                    <h4>桃花会</h4>
+                    <p>每年春季，连山镇万亩桃花盛开，桃红李白，素有"花果山"之美誉，吸引众多游客踏青赏花，形成独具特色的桃花盛会。</p>
+                </div>
+            </div>
+            <div class="culture-item fade-in">
+                <div class="culture-dot"></div>
+                <div class="culture-content">
+                    <span class="culture-date">春季</span>
+                    <h4>油菜花季</h4>
+                    <p>广汉坝区万亩油菜花竞相绽放，金黄色的花海与远处的雪山、近处的村庄构成一幅美丽的田园画卷。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transport Section -->
+    <section class="section transport" id="transport">
+        <div class="section-header">
+            <h2 class="section-title fade-in">便捷交通 · 畅达四方</h2>
+            <p class="section-subtitle fade-in">自古就是"蜀省要衢，通京孔道"，现代立体交通四通八达</p>
+        </div>
+        <div class="transport-grid">
+            <div class="transport-card fade-in">
+                <div class="transport-icon">
+                    <i class="fas fa-train"></i>
+                </div>
+                <h4>铁路</h4>
+                <p>西成客专、宝成铁路、成兰铁路横贯南北，三星堆站直达成都仅需20分钟。接驳成都地铁的市域铁路S11线正在建设中。</p>
+            </div>
+            <div class="transport-card fade-in">
+                <div class="transport-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h4>公路</h4>
+                <p>京昆高速、成都二绕、108国道等国省干道穿境而过，天府大道北延线建成通车，1小时可达成都各区。</p>
+            </div>
+            <div class="transport-card fade-in">
+                <div class="transport-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h4>航空</h4>
+                <p>天府国际机场、成都双流机场、绵阳南郊机场均在广汉70公里半径范围内，国内外航线通达全球。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section map-section" id="map">
+        <div class="section-header">
+            <h2 class="section-title fade-in">广汉区位 · 交通便捷</h2>
+            <p class="section-subtitle fade-in">地处成都平原腹心，南距成都19公里，北距德阳19公里，是成都"北大门"</p>
+        </div>
+        <div class="map-container fade-in">
+            <div class="map-image-wrapper">
+                <picture>
+                    <source srcset="images/optimized/城市概况-400w.avif 400w, images/optimized/城市概况-800w.avif 800w, images/optimized/城市概况-1200w.avif 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/avif">
+                    <source srcset="images/optimized/城市概况-400w.webp 400w, images/optimized/城市概况-800w.webp 800w, images/optimized/城市概况-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+                    <img src="images/城市概况.jpg" alt="广汉地理位置示意图" class="map-static-image" loading="lazy">
+                </picture>
+                <a href="https://amap.com/search?query=%E5%B9%BF%E6%B1%89%E5%B8%82" target="_blank" class="map-link-btn">
+                    <i class="fas fa-external-link-alt"></i> 在高德地图查看广汉详细位置
+                </a>
+            </div>
+            <div class="map-info">
+                <h3>广汉地理位置</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 东经104°15′，北纬30°57′</li>
+                    <li><i class="fas fa-subway"></i> 距成都市中心19公里，车程约30分钟</li>
+                    <li><i class="fas fa-train"></i> 距德阳市中心19公里，高铁20分钟直达</li>
+                    <li><i class="fas fa-plane"></i> 双流机场50公里，天府机场70公里</li>
+                    <li><i class="fas fa-road"></i> 京昆高速、成都二绕、108国道穿境而过</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>世界三星堆 · 乐游在广汉</h3>
+                <p>广汉，一座有故事的城市。从青铜神树到连山回锅肉，从三星堆文明到保保节民俗，这里既有穿越时空的文化厚度，也有最鲜活的人间烟火。</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fas fa-camera"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#overview">城市概览</a></li>
+                    <li><a href="#sanxingdui">三星堆文化</a></li>
+                    <li><a href="#attractions">旅游景点</a></li>
+                    <li><a href="#food">特色美食</a></li>
+                    <li><a href="#culture">民俗文化</a></li>
+                    <li><a href="#map">广汉区位</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 四川省德阳市广汉市</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> 0838-5101234</a></li>
+                    <li><a href="#"><i class="fas fa-globe"></i> www.guanghan.gov.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 四川广汉旅游宣传. 世界三星堆 · 乐游在广汉</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinksAll = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Hero Slider
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
+        const heroPrev = document.getElementById('heroPrev');
+        const heroNext = document.getElementById('heroNext');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            heroSlides.forEach(slide => slide.classList.remove('active'));
+            heroDots.forEach(dot => dot.classList.remove('active'));
+            heroSlides[index].classList.add('active');
+            heroDots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlideInterval() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlideInterval() {
+            clearInterval(slideInterval);
+        }
+
+        heroNext.addEventListener('click', () => {
+            stopSlideInterval();
+            nextSlide();
+            startSlideInterval();
+        });
+
+        heroPrev.addEventListener('click', () => {
+            stopSlideInterval();
+            prevSlide();
+            startSlideInterval();
+        });
+
+        heroDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                stopSlideInterval();
+                showSlide(parseInt(dot.dataset.index));
+                startSlideInterval();
+            });
+        });
+
+        startSlideInterval();
+
+        // Touch swipe for hero slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const heroSliderEl = document.querySelector('.hero-slider');
+
+        heroSliderEl.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        heroSliderEl.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const threshold = 50;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > threshold) {
+                stopSlideInterval();
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+                startSlideInterval();
+            }
+        }, { passive: true });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

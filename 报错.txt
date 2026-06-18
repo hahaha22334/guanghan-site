@@ -1,3 +1,0 @@
-Cloudflare Workers supports assets with sizes of up to 25 MiB. We found a file /opt/buildhome/repo/node_modules/workerd/bin/workerd with a size of 119 MiB.
-19:04:27.801
-  Ensure all assets in your assets directory "/opt/buildhome/repo" conform with the Workers maximum size requirement

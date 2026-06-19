@@ -278,7 +278,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 10;
+            z-index: 20;
             border: none;
         }
 
@@ -1003,6 +1003,20 @@
                 font-size: 1.2rem;
             }
 
+            .hero-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .hero-arrow.prev {
+                left: 10px;
+            }
+
+            .hero-arrow.next {
+                right: 10px;
+            }
+
             .overview-content {
                 grid-template-columns: 1fr;
             }
@@ -1265,8 +1279,8 @@
             </div>
             <div class="overview-image fade-in-right">
                 <picture>
-                    <source srcset="images/optimized/城市概况-400w.avif 400w, images/optimized/城市概况-800w.avif 800w, images/optimized/城市概况-1200w.avif 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/avif">
-                    <source srcset="images/optimized/城市概况-400w.webp 400w, images/optimized/城市概况-800w.webp 800w, images/optimized/城市概况-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+                    <source srcset="images/optimized/城市概况-400w.avif 400w, images/optimized/城市概况-800w.avif 800w" sizes="(max-width: 768px) 100vw, 50vw" type="image/avif">
+                    <source srcset="images/optimized/城市概况-400w.webp 400w, images/optimized/城市概况-800w.webp 800w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
                     <img src="images/城市概况.jpg" alt="广汉城市概况" loading="lazy">
                 </picture>
                 <div class="overview-badge">
@@ -1348,7 +1362,7 @@
                     <span class="attraction-tag">国家4A级景区</span>
                     <h4>三星堆博物馆</h4>
                     <p>位于广汉城西鸭子河畔，是西南地区最大的遗址类博物馆，馆藏文物1500余件</p>
-                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                    <a href="sanxingdui-museum.html" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="attraction-card fade-in">
@@ -1363,7 +1377,7 @@
                     <span class="attraction-tag">川西明珠</span>
                     <h4>房湖公园</h4>
                     <p>唐代名相房琯所建，园内古色古香，兼具苏州园林与巴蜀园林之特色</p>
-                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                    <a href="fanghu-park.html" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="attraction-card fade-in">
@@ -1378,7 +1392,7 @@
                     <span class="attraction-tag">市区最大公园</span>
                     <h4>金雁湖公园</h4>
                     <p>占地800余亩，三面环水，森林茂密，是"保保节"主会场之一</p>
-                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                    <a href="jinyan-lake.html" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="attraction-card fade-in">
@@ -1389,7 +1403,7 @@
                     <span class="attraction-tag">十大桃花胜地</span>
                     <h4>连山桃花山</h4>
                     <p>被《中国国家地理》评为十大桃花胜地，每年春季桃花盛开，美不胜收</p>
-                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                    <a href="lianshan-peach.html" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="attraction-card fade-in">
@@ -1400,7 +1414,7 @@
                     <span class="attraction-tag">全国重点文保</span>
                     <h4>雒城遗址</h4>
                     <p>东汉古城墙遗址，与鳞次栉比的高楼大厦隔街相望，见证千年历史兴衰</p>
-                    <a href="#" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
+                    <a href="luocheng-ruins.html" class="attraction-link">了解更多 <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1537,8 +1551,8 @@
         <div class="map-container fade-in">
             <div class="map-image-wrapper">
                 <picture>
-                    <source srcset="images/optimized/城市概况-400w.avif 400w, images/optimized/城市概况-800w.avif 800w, images/optimized/城市概况-1200w.avif 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/avif">
-                    <source srcset="images/optimized/城市概况-400w.webp 400w, images/optimized/城市概况-800w.webp 800w, images/optimized/城市概况-1200w.webp 1200w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
+                    <source srcset="images/optimized/城市概况-400w.avif 400w, images/optimized/城市概况-800w.avif 800w" sizes="(max-width: 768px) 100vw, 50vw" type="image/avif">
+                    <source srcset="images/optimized/城市概况-400w.webp 400w, images/optimized/城市概况-800w.webp 800w" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
                     <img src="images/城市概况.jpg" alt="广汉地理位置示意图" class="map-static-image" loading="lazy">
                 </picture>
                 <a href="https://amap.com/search?query=%E5%B9%BF%E6%B1%89%E5%B8%82" target="_blank" class="map-link-btn">
@@ -1710,13 +1724,13 @@
         // Touch swipe for hero slider
         let touchStartX = 0;
         let touchEndX = 0;
-        const heroSliderEl = document.querySelector('.hero-slider');
+        const heroEl = document.querySelector('.hero');
 
-        heroSliderEl.addEventListener('touchstart', (e) => {
+        heroEl.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
-        heroSliderEl.addEventListener('touchend', (e) => {
+        heroEl.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
             const threshold = 50;
             const diff = touchStartX - touchEndX;

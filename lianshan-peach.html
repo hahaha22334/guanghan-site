@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>连山桃花山 - 四川广汉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bronze: #5D7B6F; --bronze-dark: #3D5A4F; --bronze-light: #7B9B8F;
+            --gold: #C9A84C; --gold-light: #E8D48B;
+            --cream: #F8F4E8; --cream-dark: #EDE5D0;
+            --text-dark: #2C2C2C; --text-light: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            line-height: 1.6; overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Noto Serif SC', serif; }
+
+        .detail-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(61, 90, 79, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .detail-nav .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: var(--white); }
+        .detail-nav .logo-icon { width: 40px; height: 40px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+        .detail-nav .logo-text { font-family: 'Noto Serif SC', serif; font-size: 1.3rem; font-weight: 700; }
+        .back-home { display: inline-flex; align-items: center; gap: 8px; color: var(--white); text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 50px; transition: all 0.3s ease; font-size: 0.95rem; }
+        .back-home:hover { background: var(--gold); border-color: var(--gold); }
+
+        .detail-hero { margin-top: 60px; height: 50vh; min-height: 350px; position: relative; overflow: hidden; }
+        .detail-hero img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-hero .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(61,90,79,0.3) 0%, rgba(61,90,79,0.7) 100%); }
+        .detail-hero .hero-text { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); text-align: center; color: var(--white); width: 90%; max-width: 800px; }
+        .detail-hero .hero-text h1 { font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .detail-hero .hero-text p { font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+
+        .detail-section { padding: 80px 5%; max-width: 1100px; margin: 0 auto; }
+        .detail-section .section-title { font-size: 2rem; color: var(--bronze-dark); margin-bottom: 1.5rem; position: relative; padding-bottom: 10px; }
+        .detail-section .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 3px; background: var(--gold); }
+        .detail-section p { color: var(--text-light); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.2rem; }
+
+        .highlights-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-top: 30px; }
+        .highlight-card { background: var(--white); border-radius: 15px; padding: 30px; box-shadow: var(--shadow); transition: all 0.3s ease; }
+        .highlight-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .highlight-card .icon { width: 50px; height: 50px; background: var(--bronze); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; margin-bottom: 15px; }
+        .highlight-card h4 { font-size: 1.2rem; color: var(--bronze-dark); margin-bottom: 10px; }
+        .highlight-card p { font-size: 0.95rem; color: var(--text-light); line-height: 1.7; margin-bottom: 0; }
+
+        .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
+        .info-card { background: var(--white); border-radius: 15px; padding: 25px; display: flex; align-items: flex-start; gap: 15px; box-shadow: var(--shadow); transition: all 0.3s ease; }
+        .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+        .info-card .info-icon { width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.1rem; flex-shrink: 0; }
+        .info-card h4 { font-size: 1rem; color: var(--bronze-dark); margin-bottom: 5px; }
+        .info-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 0; line-height: 1.6; }
+
+        .back-section { text-align: center; padding: 40px 5% 60px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bronze); color: var(--white); padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: all 0.3s ease; }
+        .back-btn:hover { background: var(--bronze-dark); transform: translateY(-3px); box-shadow: var(--shadow); }
+
+        .footer { background: #1a1a1a; color: var(--white); padding: 60px 5% 30px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .footer-brand h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
+        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.8; }
+        .footer-links h4 { font-size: 1.2rem; margin-bottom: 20px; color: var(--gold); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-social { display: flex; gap: 15px; margin-top: 20px; }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); transition: all 0.3s ease; }
+        .footer-social a:hover { background: var(--gold); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+        .bg-white { background: var(--white); }
+        .bg-cream { background: var(--cream); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .detail-hero { height: 40vh; min-height: 280px; }
+            .detail-hero .hero-text h1 { font-size: 2rem; }
+            .detail-hero .hero-text p { font-size: 1rem; }
+            .detail-section { padding: 50px 5%; }
+            .detail-section .section-title { font-size: 1.6rem; }
+            .highlights-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .back-home span { display: none; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="detail-nav">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-landmark"></i></div>
+            <span class="logo-text">广汉</span>
+        </a>
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回首页</span>
+        </a>
+    </nav>
+
+    <div class="detail-hero">
+        <img src="images/external/连山桃花山.jpg" alt="连山桃花山">
+        <div class="overlay"></div>
+        <div class="hero-text">
+            <h1>连山桃花山</h1>
+            <p>中国十大桃花胜地，万亩桃林醉春光</p>
+        </div>
+    </div>
+
+    <section class="detail-section">
+        <h2 class="section-title fade-in">历史背景</h2>
+        <div class="fade-in">
+            <p>连山镇位于广汉市东部，是广汉市幅员面积最大的农业镇，拥有 2.2 万亩桃林，是广汉最大的水果产销基地。连山桃花种植历史悠久，最早可追溯至清光绪年间。民国初年，画家张大千游桃花山后连声赞叹："是快哉！是壮观！"，自此桃花山声名远扬。</p>
+            <p>1999 年起，连山镇每年 3 月举办桃花节（后更名为桃花会），至今已举办二十余届，被纳入四川省花卉（果类）生态旅游节子项目。桃花会以"桃花+在地文化"双轮驱动模式，融合赏花体验、文化演艺、民俗互动和产业推介，已成为川内乡村文旅领域的标杆活动。2025 年吸引外来游客 100 余万人次，景区正在冲击国家 4A 级旅游景区。</p>
+            <p>连山桃花山被《中国国家地理》评为"中国十大桃花胜地"之一，每年惊蛰节后桃花盛开时，漫山遍野如霞似锦，兼有李花、梨花、油菜花相衬，素有"花果山"之美誉。</p>
+        </div>
+    </section>
+
+    <section class="detail-section bg-white">
+        <h2 class="section-title fade-in">核心看点</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-seedling"></i></div>
+                <h4>万亩桃林</h4>
+                <p>景区种植桃树 2.2 万亩，桃花品种经省农科院多年改良，花繁枝茂。三月盛花期，粉色花海绵延数十里，与蓝天、山野、村庄相映成趣。</p>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                <h4>桃花会盛典</h4>
+                <p>每年惊蛰节后开幕。2026 年以"桃映连山·柚香缤纷"为主题，有沉浸式花海演出、空中芭蕾、十二花神游园、5 公里亲子徒步等活动，内容逐年升级。</p>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-utensils"></i></div>
+                <h4>连山九大碗 & 农家乐</h4>
+                <p>桃花会期间推出"连山九大碗·桃花宴"特色宴席。周边发展 80 余家农家乐，"沙田柚里"等示范点提供柴火鸡、农家菜等乡村美食体验。</p>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-apple-alt"></i></div>
+                <h4>四季品果 & 农产品</h4>
+                <p>国家地理标志产品"松林桃"，另有"红美人"柑橘、"脆香甜"柚子、"连山李"等优质水果品牌。春季赏花、夏秋品果，全年有看点。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="detail-section">
+        <h2 class="section-title fade-in">乡村振兴新名片</h2>
+        <div class="fade-in">
+            <p>连山镇以桃花会为依托，积极探索农文旅融合发展。近年来培育了"柚淘"系列果酒，建成松间·朴里等特色民宿、乡村振兴展示馆、粮食科技展示馆等，实现"天天有鲜果、月月有花香、季季有节日、处处有看点"。</p>
+            <p>景区打造了望花台、红堰广场等 5 个特色打卡点位，建有文创市集汇聚连山特产与美食。这里同时也是亲子徒步、摄影写生的理想目的地。</p>
+        </div>
+    </section>
+
+    <section class="detail-section bg-cream">
+        <h2 class="section-title fade-in">实用信息</h2>
+        <div class="info-grid">
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <h4>地址</h4>
+                    <p>四川省德阳市广汉市连山镇（距城区约 18 公里）</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-ticket-alt"></i></div>
+                <div>
+                    <h4>门票</h4>
+                    <p>免费（花期 3 月为最佳观赏期）</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h4>开放时间</h4>
+                    <p>全天开放（每年 3 月桃花会期间活动最丰富）</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-car"></i></div>
+                <div>
+                    <h4>交通方式</h4>
+                    <p>自驾沿沿山路方向行驶；或从广汉城区乘公交前往连山镇</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="back-section">
+        <a href="index.html#attractions" class="back-btn">
+            <i class="fas fa-arrow-left"></i> 返回景点列表
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>世界三星堆 · 乐游在广汉</h3>
+                <p>广汉，一座有故事的城市。从青铜神树到连山回锅肉，从三星堆文明到保保节民俗，这里既有穿越时空的文化厚度，也有最鲜活的人间烟火。</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fas fa-camera"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="index.html#overview">城市概览</a></li>
+                    <li><a href="index.html#sanxingdui">三星堆文化</a></li>
+                    <li><a href="index.html#attractions">旅游景点</a></li>
+                    <li><a href="index.html#food">特色美食</a></li>
+                    <li><a href="index.html#culture">民俗文化</a></li>
+                    <li><a href="index.html#map">广汉区位</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 四川省德阳市广汉市</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> 0838-5101234</a></li>
+                    <li><a href="#"><i class="fas fa-globe"></i> www.guanghan.gov.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 四川广汉旅游宣传. 世界三星堆 · 乐游在广汉</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

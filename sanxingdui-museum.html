@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三星堆博物馆 - 四川广汉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bronze: #5D7B6F; --bronze-dark: #3D5A4F; --bronze-light: #7B9B8F;
+            --gold: #C9A84C; --gold-light: #E8D48B;
+            --cream: #F8F4E8; --cream-dark: #EDE5D0;
+            --text-dark: #2C2C2C; --text-light: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Noto Serif SC', serif; }
+
+        /* Simplified Navbar */
+        .detail-nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(61, 90, 79, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .detail-nav .logo {
+            display: flex; align-items: center; gap: 0.8rem;
+            text-decoration: none; color: var(--white);
+        }
+        .detail-nav .logo-icon {
+            width: 40px; height: 40px;
+            background: var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+        }
+        .detail-nav .logo-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3rem; font-weight: 700;
+        }
+        .back-home {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--white); text-decoration: none;
+            font-weight: 500; padding: 0.5rem 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .back-home:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* Detail Hero */
+        .detail-hero {
+            margin-top: 60px;
+            height: 50vh; min-height: 350px;
+            position: relative; overflow: hidden;
+        }
+        .detail-hero img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .detail-hero .overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(61,90,79,0.3) 0%, rgba(61,90,79,0.7) 100%);
+        }
+        .detail-hero .hero-text {
+            position: absolute; bottom: 50px; left: 50%;
+            transform: translateX(-50%);
+            text-align: center; color: var(--white);
+            width: 90%; max-width: 800px;
+        }
+        .detail-hero .hero-text h1 {
+            font-size: 3rem; margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .detail-hero .hero-text p {
+            font-size: 1.2rem; font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Section */
+        .detail-section {
+            padding: 80px 5%;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .detail-section .section-title {
+            font-size: 2rem;
+            color: var(--bronze-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .detail-section .section-title::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0;
+            width: 60px; height: 3px;
+            background: var(--gold);
+        }
+        .detail-section p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Highlights Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .highlight-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .highlight-card .icon {
+            width: 50px; height: 50px;
+            background: var(--bronze);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .highlight-card h4 {
+            font-size: 1.2rem;
+            color: var(--bronze-dark);
+            margin-bottom: 10px;
+        }
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .info-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        .info-card .info-icon {
+            width: 45px; height: 45px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white); font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .info-card h4 {
+            font-size: 1rem;
+            color: var(--bronze-dark);
+            margin-bottom: 5px;
+        }
+        .info-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* Back Button */
+        .back-section {
+            text-align: center;
+            padding: 40px 5% 60px;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center; gap: 8px;
+            background: var(--bronze);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: var(--bronze-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 60px 5% 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-social {
+            display: flex; gap: 15px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Background variations */
+        .bg-white { background: var(--white); }
+        .bg-cream { background: var(--cream); }
+
+        /* Fade animations */
+        .fade-in {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1; transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .detail-hero { height: 40vh; min-height: 280px; }
+            .detail-hero .hero-text h1 { font-size: 2rem; }
+            .detail-hero .hero-text p { font-size: 1rem; }
+            .detail-section { padding: 50px 5%; }
+            .detail-section .section-title { font-size: 1.6rem; }
+            .highlights-grid { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .back-home span { display: none; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="detail-nav">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-landmark"></i></div>
+            <span class="logo-text">广汉</span>
+        </a>
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i>
+            <span>返回首页</span>
+        </a>
+    </nav>
+
+    <div class="detail-hero">
+        <img src="images/external/三星堆博物馆新馆外景.jpg" alt="三星堆博物馆新馆外景">
+        <div class="overlay"></div>
+        <div class="hero-text">
+            <h1>三星堆博物馆</h1>
+            <p>沉睡三千年，一醒惊天下</p>
+        </div>
+    </div>
+
+    <section class="detail-section">
+        <h2 class="section-title fade-in">历史背景</h2>
+        <div class="fade-in">
+            <p>三星堆遗址位于四川省广汉市城西鸭子河畔，分布面积 12 平方公里，距今约 4800 至 2600 年，相当于新石器时代晚期至商周时期，是古蜀文明的都邑所在。遗址因三个起伏相连的黄土堆与北面月亮湾台地形成"三星伴月"景观而得名。</p>
+            <p>1929 年，当地农民燕道诚在挖水沟时偶然发现一坑玉石器，拉开了三星堆考古的序幕。1986 年，两个大型祭祀坑的发掘震惊世界——数以千计的青铜器、金器、玉器破土而出，其造型之奇诡、工艺之精湛，彻底改写了人们对古蜀文明的认知。2023 年 7 月，三星堆博物馆新馆落成试运行，建筑面积 5.44 万平方米，是西南地区最大的遗址类博物馆单体建筑，近 1500 件文物在新馆中集中亮相。</p>
+        </div>
+    </section>
+
+    <section class="detail-section bg-white">
+        <h2 class="section-title fade-in">四大镇馆之宝</h2>
+        <p class="fade-in">以下四件文物被禁止出境展览，是三星堆文明的巅峰之作，也是解读古蜀王国的钥匙。</p>
+        <div class="highlights-grid">
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-tree"></i></div>
+                <h4>一号青铜神树</h4>
+                <p>通高 3.96 米，重约 360 斤，是全世界已发现的最大单件青铜文物。树分三层九枝，枝头各立一鸟，底座盘踞一条龙。学者认为其对应《山海经》中"扶桑神树"的记载，是古蜀人通天崇拜的物化象征。</p>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-user"></i></div>
+                <h4>青铜大立人像</h4>
+                <p>通高 2.62 米（人像 1.72 米 + 基座），1986 年出土于二号祭祀坑。人像身穿三层华服，双手呈环握状高举于胸前，原应持有象牙或某种权力象征物，被普遍认为是古蜀王的形象，是"王权"的化身。</p>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-crown"></i></div>
+                <h4>金杖</h4>
+                <p>全长 1.42 米，直径 2.3 厘米，净重约 500 克。金皮包裹木芯制成，木芯已腐朽，仅存金皮。金皮上刻有鱼、鸟、人头图案，是古蜀王权的最高象征，类似于中原王朝的"九鼎"。</p>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="icon"><i class="fas fa-eye"></i></div>
+                <h4>青铜纵目面具</h4>
+                <p>宽 138 厘米，高 66 厘米，眼球凸出眼眶达 16 厘米，双耳极大如翅膀。造型极为夸张，对应古书记载第一代蜀王蚕丛"纵目"的传说，体现了古蜀人对超自然视力的崇拜与想象。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="detail-section">
+        <h2 class="section-title fade-in">三层展区 · 沉浸体验</h2>
+        <div class="fade-in">
+            <p>新馆陈列馆分为三个展区，建议从一楼到二楼依次参观：</p>
+            <p><strong>一展区「世纪逐梦」</strong>（一楼）—— 讲述三星堆从1929年发现至今的百年考古历程，展示最早的发掘工具、考古现场照片和最新的科技考古手段，包括2021年以来新发现的6座祭祀坑成果。</p>
+            <p><strong>二展区「巍然王都」</strong>（一楼）—— 呈现三星堆作为古蜀都邑的盛大面貌，集中展示青铜大立人、金杖、戴金面罩青铜人像、黄金面具等礼器，以及大量青铜人头像阵列。</p>
+            <p><strong>三展区「天地人神」</strong>（二楼）—— 展陈祭祀文化相关的器物，以一号青铜神树为压轴，另有青铜神坛、青铜纵目面具、太阳形器、祭山图玉璋等。展区空间宏大，是观展的高潮所在。</p>
+            <p>此外，<strong>文物修复馆</strong>（09:30-11:30、14:30-16:30 对开放）可以现场观看文物修复师的工作，了解青铜器、金器的修复过程，是三星堆之旅不可错过的延伸体验。</p>
+        </div>
+    </section>
+
+    <section class="detail-section bg-cream">
+        <h2 class="section-title fade-in">实用信息</h2>
+        <div class="info-grid">
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <h4>地址</h4>
+                    <p>四川省德阳市广汉市向新路 133 号</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-ticket-alt"></i></div>
+                <div>
+                    <h4>门票</h4>
+                    <p>普通票 72 元/人，学生票 36 元/人<br>60 周岁以上中国公民免费</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h4>开放时间</h4>
+                    <p>陈列馆 08:30-18:00（17:00 停止入馆）<br>除夕闭馆，寒暑假延时至 20:00</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-train"></i></div>
+                <div>
+                    <h4>交通方式</h4>
+                    <p>成都春熙路直通车往返 50 元；或成都东站乘城际列车至广汉北站（18 分钟，18 元），出站打车约 15 元</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div>
+                    <h4>预约方式</h4>
+                    <p>实名预约，每日 20:00 放票，可提前 5 天；通过"三星堆博物馆"微信公众号或官网 www.sxd.cn 预约</p>
+                </div>
+            </div>
+            <div class="info-card fade-in">
+                <div class="info-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <h4>建议游览时间</h4>
+                    <p>3-5 小时（含修复馆），建议上午到馆，人流量相对较少</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="back-section">
+        <a href="index.html#attractions" class="back-btn">
+            <i class="fas fa-arrow-left"></i> 返回景点列表
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>世界三星堆 · 乐游在广汉</h3>
+                <p>广汉，一座有故事的城市。从青铜神树到连山回锅肉，从三星堆文明到保保节民俗，这里既有穿越时空的文化厚度，也有最鲜活的人间烟火。</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fas fa-camera"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="index.html#overview">城市概览</a></li>
+                    <li><a href="index.html#sanxingdui">三星堆文化</a></li>
+                    <li><a href="index.html#attractions">旅游景点</a></li>
+                    <li><a href="index.html#food">特色美食</a></li>
+                    <li><a href="index.html#culture">民俗文化</a></li>
+                    <li><a href="index.html#map">广汉区位</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 四川省德阳市广汉市</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> 0838-5101234</a></li>
+                    <li><a href="#"><i class="fas fa-globe"></i> www.guanghan.gov.cn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 四川广汉旅游宣传. 世界三星堆 · 乐游在广汉</p>
+        </div>
+    </footer>
+
+    <script>
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

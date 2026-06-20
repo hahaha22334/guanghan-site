@@ -6,7 +6,8 @@
   "scripts": {
     "optimize-images": "node optimize-images.js",
     "start": "npx serve .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "powershell -ExecutionPolicy Bypass -File ./publish.ps1"
   },
   "keywords": [],
   "author": "",

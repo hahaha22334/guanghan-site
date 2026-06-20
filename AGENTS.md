@@ -11,6 +11,71 @@ npx wrangler pages deploy . --project-name=guanghan-site
 
 **Do NOT use Git-integrated Cloudflare Pages** — the build environment generates a `workerd` binary (~119MB) inside `node_modules/` that exceeds the 25MB asset limit. Project already exists on Cloudflare; no `project create` needed.
 
+
+## Publish Script
+
+A helper script exists at `publish.ps1`, with an npm alias:
+
+```powershell
+npm run publish
+```
+
+Use this for routine updates from the user's own PowerShell session. It will:
+
+1. Stop any `workerd` process that may lock npm cache files.
+2. Remove `.npm-cache/` from the project root.
+3. Check that `images/` and `index.html` exist.
+4. Run `git add .`, commit, and push to `origin master`.
+5. Check Cloudflare login with `npx --yes wrangler@latest whoami`.
+6. Deploy with `npx --yes wrangler@latest pages deploy $PSScriptRoot --project-name=guanghan-site --branch=master --commit-dirty=true`.
+
+Useful variants:
+
+```powershell
+# Custom commit message
+powershell -ExecutionPolicy Bypass -File .\publish.ps1 -Message "完善景点详情页"
+
+# Deploy only, skip GitHub
+powershell -ExecutionPolicy Bypass -File .\publish.ps1 -SkipGit
+
+# GitHub only, skip Cloudflare deploy
+powershell -ExecutionPolicy Bypass -File .\publish.ps1 -SkipDeploy
+```
+
+`publish.ps1` must be saved as UTF-8 with BOM for Windows PowerShell 5, otherwise Chinese strings may be parsed as mojibake and the script can fail with bogus quote/brace errors. Keep the BOM.
+
+## GitHub + Cloudflare Update Flow
+
+Correct update flow is:
+
+```powershell
+cd D:\code
+npm run publish
+```
+
+Manual equivalent:
+
+```powershell
+cd D:\code
+git add .
+git commit -m "Update Guanghan site"
+git push origin master
+npx --yes wrangler@latest pages deploy D:\code --project-name=guanghan-site --branch=master --commit-dirty=true
+```
+
+The production URL is `https://guanghan-site.pages.dev`. Wrangler may also print a preview URL like `https://<hash>.guanghan-site.pages.dev`; that preview URL is useful for checking the exact deployment.
+
+Deployment is only successful when Wrangler prints `Success`, `Deploying`, and `Deployment complete`. If the command returns to the prompt with no output, check `npx --yes wrangler@latest --version`, `npx --yes wrangler@latest whoami`, and `$LASTEXITCODE`.
+
+## Windows / Codex Sandbox Gotchas
+
+- Codex may be able to edit files in `D:\code` but still fail to write `.git/index`, causing `git add` or `git commit` to fail with `Unable to create 'D:/code/.git/index.lock': Permission denied`. In that case, ask the user to run `npm run publish` locally.
+- Codex may not have the user's GitHub credentials, causing `git push` failures such as `SEC_E_NO_CREDENTIALS`. The user's own PowerShell session usually has the right credentials.
+- Codex may not have the user's Cloudflare interactive login. Wrangler may say the OAuth token expired or ask for `CLOUDFLARE_API_TOKEN`. The user should run `npx --yes wrangler@latest login` locally if needed.
+- If `npx wrangler` uses a project-local cache (`.npm-cache/`), it may create `workerd` under `.npm-cache/_npx/...`. If that process is still running, deleting the cache can warn with `EBUSY`. Stop it with `Get-Process workerd -ErrorAction SilentlyContinue | Stop-Process -Force`.
+- `.cloudflareignore` must include `.npm-cache/` and `.wrangler/`. Otherwise `wrangler pages deploy .` can scan/upload cache files, including `workerd`, leading to large asset or stale deployment problems.
+- Do not rely on Cloudflare Git integration for this project. The working production path is still Wrangler CLI deploy.
+
 ## Image Rules
 
 - Source JPGs in `images/`. After adding one, run `npm run optimize-images`

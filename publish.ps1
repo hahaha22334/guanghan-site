@@ -46,8 +46,10 @@ if (-not $SkipDeploy) {
     Ensure-Success "Cloudflare 未登录。请先运行：npx --yes wrangler@latest login"
 
     Step "部署到 Cloudflare Pages"
-    $env:WRANGLER_LOG = "none"
-    npx --yes wrangler@latest pages deploy $PSScriptRoot --project-name=guanghan-site --branch=master --commit-dirty=true
+        Remove-Item Env:WRANGLER_LOG -ErrorAction SilentlyContinue
+    Remove-Item Env:NPM_CONFIG_CACHE -ErrorAction SilentlyContinue
+
+    npx --yes wrangler@latest pages deploy D:\code --project-name=guanghan-site --branch=master --commit-dirty=true
     Ensure-Success "Cloudflare 部署失败"
 }
 

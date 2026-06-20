@@ -5,3 +5,12 @@ node_modules/
 .gitattributes
 package-lock.json
 优化图片.js
+
+.npm-cache/
+.wrangler/
+
+.npm-cache/
+.wrangler/
+
+.npm-cache/
+.wrangler/

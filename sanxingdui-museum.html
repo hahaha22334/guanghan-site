@@ -203,6 +203,66 @@
             line-height: 1.6;
         }
 
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 30px;
+        }
+        .visual-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .visual-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .visual-card picture,
+        .visual-card img {
+            display: block;
+            width: 100%;
+        }
+        .visual-card img {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+        .visual-card-content {
+            padding: 18px 20px 20px;
+        }
+        .visual-card h4 {
+            color: var(--bronze-dark);
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+        }
+        .visual-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        .route-panel {
+            margin-top: 32px;
+            background: var(--white);
+            border-left: 5px solid var(--gold);
+            border-radius: 12px;
+            padding: 26px 28px;
+            box-shadow: var(--shadow);
+        }
+        .route-panel h4 {
+            color: var(--bronze-dark);
+            font-size: 1.18rem;
+            margin-bottom: 12px;
+        }
+        .route-panel ul {
+            padding-left: 20px;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+        .route-panel li {
+            margin-bottom: 6px;
+        }
         /* Back Button */
         .back-section {
             text-align: center;
@@ -306,6 +366,7 @@
             .detail-section .section-title { font-size: 1.6rem; }
             .highlights-grid { grid-template-columns: 1fr; }
             .info-grid { grid-template-columns: 1fr; }
+            .visual-grid { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; }
             .back-home span { display: none; }
         }
@@ -386,6 +447,44 @@
         </div>
     </section>
 
+    <section class="detail-section bg-white">
+        <h2 class="section-title fade-in">视觉导览</h2>
+        <p class="fade-in">三星堆的震撼不只在单件文物，更在青铜、黄金、玉器共同构成的古蜀想象。建议先抓住几类代表性展品，再回到展厅慢慢看细节。</p>
+        <div class="visual-grid">
+            <div class="visual-card fade-in">
+                <picture>
+                    <source srcset="images/optimized/金面具和青铜大面具-400w.avif 400w" sizes="(max-width: 768px) 100vw, 33vw" type="image/avif">
+                    <source srcset="images/optimized/金面具和青铜大面具-400w.webp 400w" sizes="(max-width: 768px) 100vw, 33vw" type="image/webp">
+                    <img src="images/external/金面具和青铜大面具.jpg" alt="金面具和青铜大面具" loading="lazy">
+                </picture>
+                <div class="visual-card-content"><h4>黄金与青铜</h4><p>金面具和青铜面具是三星堆最有传播度的视觉符号，适合放在参观前半段重点观看。</p></div>
+            </div>
+            <div class="visual-card fade-in">
+                <picture>
+                    <source srcset="images/optimized/青铜面具-400w.avif 400w" sizes="(max-width: 768px) 100vw, 33vw" type="image/avif">
+                    <source srcset="images/optimized/青铜面具-400w.webp 400w" sizes="(max-width: 768px) 100vw, 33vw" type="image/webp">
+                    <img src="images/external/青铜面具.jpg" alt="青铜面具" loading="lazy">
+                </picture>
+                <div class="visual-card-content"><h4>神秘面具群</h4><p>夸张的眼、耳和面部比例，是理解古蜀祭祀与神灵崇拜的入口。</p></div>
+            </div>
+            <div class="visual-card fade-in">
+                <picture>
+                    <source srcset="images/optimized/竖披发青铜人像-400w.avif 400w" sizes="(max-width: 768px) 100vw, 33vw" type="image/avif">
+                    <source srcset="images/optimized/竖披发青铜人像-400w.webp 400w" sizes="(max-width: 768px) 100vw, 33vw" type="image/webp">
+                    <img src="images/external/竖披发青铜人像.jpg" alt="竖披发青铜人像" loading="lazy">
+                </picture>
+                <div class="visual-card-content"><h4>青铜人像</h4><p>人像的发式、手势与服饰细节，能看到古蜀社会等级和礼仪想象。</p></div>
+            </div>
+        </div>
+        <div class="route-panel fade-in">
+            <h4>推荐参观顺序</h4>
+            <ul>
+                <li>先看一展区，了解三星堆百年考古发现脉络。</li>
+                <li>再进入二展区，集中观看青铜人像、金杖、黄金面具等重器。</li>
+                <li>最后到三展区，把青铜神树、祭祀器物作为整趟参观的高潮。</li>
+            </ul>
+        </div>
+    </section>
     <section class="detail-section bg-cream">
         <h2 class="section-title fade-in">实用信息</h2>
         <div class="info-grid">

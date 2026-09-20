@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "sitePath": "images/external/heita-street.jpg",
+      "sha256": "e68945ea85dd8dad2504b06d4895e434d1d7aeec6a3449f866085e7248c3127b",
+      "sourceAssetId": "sha256:e68945ea85dd8dad2504b06d4895e434d1d7aeec6a3449f866085e7248c3127b",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/68ee04e8000000000700d860",
+      "platform": "xhs",
+      "contentId": "68ee04e8000000000700d860",
+      "creatorDisplay": "阿*",
+      "importedAt": "2026-09-20T11:10:28+00:00",
+      "optimizedPaths": [
+        "images/optimized/heita-street-1200w.avif",
+        "images/optimized/heita-street-1200w.webp",
+        "images/optimized/heita-street-1600w.avif",
+        "images/optimized/heita-street-1600w.webp",
+        "images/optimized/heita-street-400w.avif",
+        "images/optimized/heita-street-400w.webp",
+        "images/optimized/heita-street-800w.avif",
+        "images/optimized/heita-street-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/jinsi-noodles-cut.webp",
+      "sha256": "ec6fbbc46e44b726fe89259d47cada5b30bdb978b5575723f5c861b865276835",
+      "sourceAssetId": "sha256:ec6fbbc46e44b726fe89259d47cada5b30bdb978b5575723f5c861b865276835",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6974733a000000000e00e199",
+      "platform": "xhs",
+      "contentId": "6974733a000000000e00e199",
+      "creatorDisplay": "传***味",
+      "importedAt": "2026-09-20T11:11:38+00:00",
+      "optimizedPaths": [
+        "images/optimized/jinsi-noodles-cut-1200w.avif",
+        "images/optimized/jinsi-noodles-cut-1200w.webp",
+        "images/optimized/jinsi-noodles-cut-1600w.avif",
+        "images/optimized/jinsi-noodles-cut-1600w.webp",
+        "images/optimized/jinsi-noodles-cut-400w.avif",
+        "images/optimized/jinsi-noodles-cut-400w.webp",
+        "images/optimized/jinsi-noodles-cut-800w.avif",
+        "images/optimized/jinsi-noodles-cut-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/jinsi-noodles-lift.webp",
+      "sha256": "e68b8b5ad24c4bd5fdddee72c17320ccd6a11e7a0b32f3dedf9d4519a1dfdd46",
+      "sourceAssetId": "sha256:e68b8b5ad24c4bd5fdddee72c17320ccd6a11e7a0b32f3dedf9d4519a1dfdd46",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6974733a000000000e00e199",
+      "platform": "xhs",
+      "contentId": "6974733a000000000e00e199",
+      "creatorDisplay": "传***味",
+      "importedAt": "2026-09-20T11:12:03+00:00",
+      "optimizedPaths": [
+        "images/optimized/jinsi-noodles-lift-1200w.avif",
+        "images/optimized/jinsi-noodles-lift-1200w.webp",
+        "images/optimized/jinsi-noodles-lift-1600w.avif",
+        "images/optimized/jinsi-noodles-lift-1600w.webp",
+        "images/optimized/jinsi-noodles-lift-400w.avif",
+        "images/optimized/jinsi-noodles-lift-400w.webp",
+        "images/optimized/jinsi-noodles-lift-800w.avif",
+        "images/optimized/jinsi-noodles-lift-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/jinsi-noodles-press.webp",
+      "sha256": "41788e048a2b3cb6e65eaff4052478e75210ae3e954ed6361994d82582a871e8",
+      "sourceAssetId": "sha256:41788e048a2b3cb6e65eaff4052478e75210ae3e954ed6361994d82582a871e8",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6974733a000000000e00e199",
+      "platform": "xhs",
+      "contentId": "6974733a000000000e00e199",
+      "creatorDisplay": "传***味",
+      "importedAt": "2026-09-20T11:11:11+00:00",
+      "optimizedPaths": [
+        "images/optimized/jinsi-noodles-press-1200w.avif",
+        "images/optimized/jinsi-noodles-press-1200w.webp",
+        "images/optimized/jinsi-noodles-press-1600w.avif",
+        "images/optimized/jinsi-noodles-press-1600w.webp",
+        "images/optimized/jinsi-noodles-press-400w.avif",
+        "images/optimized/jinsi-noodles-press-400w.webp",
+        "images/optimized/jinsi-noodles-press-800w.avif",
+        "images/optimized/jinsi-noodles-press-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/lianshan-pork-chef.webp",
+      "sha256": "1980f0ad744a9bdba0c00c04116054935da95ab2dbfcc91e94090d26c94ca51e",
+      "sourceAssetId": "sha256:1980f0ad744a9bdba0c00c04116054935da95ab2dbfcc91e94090d26c94ca51e",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a7bf4d80000000032023b77",
+      "platform": "xhs",
+      "contentId": "6a7bf4d80000000032023b77",
+      "creatorDisplay": "🍰***💚",
+      "importedAt": "2026-09-20T11:10:48+00:00",
+      "optimizedPaths": [
+        "images/optimized/lianshan-pork-chef-400w.avif",
+        "images/optimized/lianshan-pork-chef-400w.webp",
+        "images/optimized/lianshan-pork-chef-800w.avif",
+        "images/optimized/lianshan-pork-chef-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/lianshan-pork-cooking.webp",
+      "sha256": "db3f3afe3991d02db685844e360fe3fc9315197279b10e895a9246fec4932b68",
+      "sourceAssetId": "sha256:db3f3afe3991d02db685844e360fe3fc9315197279b10e895a9246fec4932b68",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a9c235c0000000011037ff5",
+      "platform": "xhs",
+      "contentId": "6a9c235c0000000011037ff5",
+      "creatorDisplay": "👑***👑",
+      "importedAt": "2026-09-20T11:10:41+00:00",
+      "optimizedPaths": [
+        "images/optimized/lianshan-pork-cooking-400w.avif",
+        "images/optimized/lianshan-pork-cooking-400w.webp",
+        "images/optimized/lianshan-pork-cooking-800w.avif",
+        "images/optimized/lianshan-pork-cooking-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/luocheng-gate.jpg",
+      "sha256": "49b1ea59d6e1fd875605b11e4a65ae1a413ef6d0b9f444a1fa9d562eb032480e",
+      "sourceAssetId": "sha256:49b1ea59d6e1fd875605b11e4a65ae1a413ef6d0b9f444a1fa9d562eb032480e",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/688d580b0000000023018f5d",
+      "platform": "xhs",
+      "contentId": "688d580b0000000023018f5d",
+      "creatorDisplay": "后*",
+      "importedAt": "2026-09-20T11:09:59+00:00",
+      "optimizedPaths": [
+        "images/optimized/luocheng-gate-1200w.avif",
+        "images/optimized/luocheng-gate-1200w.webp",
+        "images/optimized/luocheng-gate-1600w.avif",
+        "images/optimized/luocheng-gate-1600w.webp",
+        "images/optimized/luocheng-gate-400w.avif",
+        "images/optimized/luocheng-gate-400w.webp",
+        "images/optimized/luocheng-gate-800w.avif",
+        "images/optimized/luocheng-gate-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/sanxingdui-entrance.webp",
+      "sha256": "2e73c8eacb751a76bba7bdebaadf74578da1ebd732e6cd81de5cfe947300cd63",
+      "sourceAssetId": "sha256:2e73c8eacb751a76bba7bdebaadf74578da1ebd732e6cd81de5cfe947300cd63",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/67acba130000000018012663",
+      "platform": "xhs",
+      "contentId": "67acba130000000018012663",
+      "creatorDisplay": "设***工",
+      "importedAt": "2026-09-20T11:09:34+00:00",
+      "optimizedPaths": [
+        "images/optimized/sanxingdui-entrance-1200w.avif",
+        "images/optimized/sanxingdui-entrance-1200w.webp",
+        "images/optimized/sanxingdui-entrance-400w.avif",
+        "images/optimized/sanxingdui-entrance-400w.webp",
+        "images/optimized/sanxingdui-entrance-800w.avif",
+        "images/optimized/sanxingdui-entrance-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/sanxingdui-hero.webp",
+      "sha256": "0e86e12d5aadc1f5d6b75cdaf8f07ab39bf17ad4b88a2471adb9f06e24947a2f",
+      "sourceAssetId": "sha256:0e86e12d5aadc1f5d6b75cdaf8f07ab39bf17ad4b88a2471adb9f06e24947a2f",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/67028d7c000000001902daac",
+      "platform": "xhs",
+      "contentId": "67028d7c000000001902daac",
+      "creatorDisplay": "4***n",
+      "importedAt": "2026-09-20T11:09:22+00:00",
+      "optimizedPaths": [
+        "images/optimized/sanxingdui-hero-1200w.avif",
+        "images/optimized/sanxingdui-hero-1200w.webp",
+        "images/optimized/sanxingdui-hero-1600w.avif",
+        "images/optimized/sanxingdui-hero-1600w.webp",
+        "images/optimized/sanxingdui-hero-400w.avif",
+        "images/optimized/sanxingdui-hero-400w.webp",
+        "images/optimized/sanxingdui-hero-800w.avif",
+        "images/optimized/sanxingdui-hero-800w.webp"
+      ]
+    }
+  ]
+}

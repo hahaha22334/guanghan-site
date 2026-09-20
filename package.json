@@ -6,7 +6,8 @@
   "scripts": {
     "optimize-images": "node optimize-images.js",
     "start": "npx serve .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": "node validate-site.js",
+    "test": "npm run validate",
     "build": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -SkipDeploy",
     "deploy:preview": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -Preview",
     "deploy:production": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit",

@@ -28,6 +28,10 @@ if (-not (Test-Path "$PSScriptRoot\images")) { throw "缺少 images 目录" }
 if (-not (Test-Path "$PSScriptRoot\index.html")) { throw "缺少 index.html" }
 Write-Host "基础文件检查通过" -ForegroundColor Green
 
+Step "验证站点结构、资源与元数据"
+node "$PSScriptRoot\validate-site.js"
+Ensure-Success "站点验证失败"
+
 Step "准备干净的 Cloudflare 上传目录"
 $DeployDir = Join-Path $PSScriptRoot "dist"
 Remove-Item $DeployDir -Recurse -Force -ErrorAction SilentlyContinue
@@ -35,6 +39,7 @@ New-Item $DeployDir -ItemType Directory -Force | Out-Null
 
 Get-ChildItem $PSScriptRoot -Filter "*.html" -File | Copy-Item -Destination $DeployDir -Force
 Copy-Item (Join-Path $PSScriptRoot "images") -Destination $DeployDir -Recurse -Force
+Copy-Item (Join-Path $PSScriptRoot "assets") -Destination $DeployDir -Recurse -Force
 foreach ($SpecialFile in @("_headers", "_redirects")) {
     $SourceFile = Join-Path $PSScriptRoot $SpecialFile
     if (Test-Path $SourceFile) {
@@ -43,6 +48,7 @@ foreach ($SpecialFile in @("_headers", "_redirects")) {
 }
 
 $RequiredPages = @(
+    "404.html",
     "index.html",
     "fanghu-park.html",
     "jinyan-lake.html",
@@ -50,9 +56,16 @@ $RequiredPages = @(
     "luocheng-ruins.html",
     "sanxingdui-museum.html"
 )
-foreach ($RequiredPage in $RequiredPages) {
-    if (-not (Test-Path (Join-Path $DeployDir $RequiredPage))) {
-        throw "上传目录缺少页面：$RequiredPage"
+$RequiredFiles = $RequiredPages + @(
+    "assets/css/tokens.css",
+    "assets/css/site.css",
+    "assets/css/detail.css",
+    "assets/js/site.js",
+    "assets/icons.svg"
+)
+foreach ($RequiredFile in $RequiredFiles) {
+    if (-not (Test-Path (Join-Path $DeployDir $RequiredFile))) {
+        throw "上传目录缺少文件：$RequiredFile"
     }
 }
 Write-Host "上传目录已生成：$DeployDir" -ForegroundColor Green

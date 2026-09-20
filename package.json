@@ -7,6 +7,10 @@
     "optimize-images": "node optimize-images.js",
     "start": "npx serve .",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -SkipDeploy",
+    "deploy:preview": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -Preview",
+    "deploy:production": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit",
+    "publish:preview": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -Preview",
     "publish": "powershell -ExecutionPolicy Bypass -File ./publish.ps1"
   },
   "keywords": [],
@@ -14,6 +18,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "sharp": "^0.35.1"
+    "sharp": "^0.35.4"
   }
 }

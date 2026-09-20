@@ -1,10 +1,13 @@
 ﻿param(
     [string]$Message = "Update Guanghan site",
     [switch]$SkipGit,
-    [switch]$SkipDeploy
+    [switch]$SkipDeploy,
+    [switch]$Preview
 )
 
 $ErrorActionPreference = "Stop"
+[Console]::OutputEncoding = New-Object System.Text.UTF8Encoding($false)
+$OutputEncoding = [Console]::OutputEncoding
 Set-Location $PSScriptRoot
 
 function Step($Text) {
@@ -24,6 +27,35 @@ Step "检查本地图片目录"
 if (-not (Test-Path "$PSScriptRoot\images")) { throw "缺少 images 目录" }
 if (-not (Test-Path "$PSScriptRoot\index.html")) { throw "缺少 index.html" }
 Write-Host "基础文件检查通过" -ForegroundColor Green
+
+Step "准备干净的 Cloudflare 上传目录"
+$DeployDir = Join-Path $PSScriptRoot "dist"
+Remove-Item $DeployDir -Recurse -Force -ErrorAction SilentlyContinue
+New-Item $DeployDir -ItemType Directory -Force | Out-Null
+
+Get-ChildItem $PSScriptRoot -Filter "*.html" -File | Copy-Item -Destination $DeployDir -Force
+Copy-Item (Join-Path $PSScriptRoot "images") -Destination $DeployDir -Recurse -Force
+foreach ($SpecialFile in @("_headers", "_redirects")) {
+    $SourceFile = Join-Path $PSScriptRoot $SpecialFile
+    if (Test-Path $SourceFile) {
+        Copy-Item $SourceFile -Destination $DeployDir -Force
+    }
+}
+
+$RequiredPages = @(
+    "index.html",
+    "fanghu-park.html",
+    "jinyan-lake.html",
+    "lianshan-peach.html",
+    "luocheng-ruins.html",
+    "sanxingdui-museum.html"
+)
+foreach ($RequiredPage in $RequiredPages) {
+    if (-not (Test-Path (Join-Path $DeployDir $RequiredPage))) {
+        throw "上传目录缺少页面：$RequiredPage"
+    }
+}
+Write-Host "上传目录已生成：$DeployDir" -ForegroundColor Green
 
 if (-not $SkipGit) {
     Step "提交并推送到 GitHub"
@@ -45,11 +77,13 @@ if (-not $SkipDeploy) {
     npx --yes wrangler@latest whoami
     Ensure-Success "Cloudflare 未登录。请先运行：npx --yes wrangler@latest login"
 
-    Step "部署到 Cloudflare Pages"
-        Remove-Item Env:WRANGLER_LOG -ErrorAction SilentlyContinue
+    $DeployBranch = if ($Preview) { "preview" } else { "master" }
+    $DeployTarget = if ($Preview) { "预览环境" } else { "生产环境" }
+    Step "部署到 Cloudflare Pages $DeployTarget"
+    Remove-Item Env:WRANGLER_LOG -ErrorAction SilentlyContinue
     Remove-Item Env:NPM_CONFIG_CACHE -ErrorAction SilentlyContinue
 
-    npx --yes wrangler@latest pages deploy D:\code --project-name=guanghan-site --branch=master --commit-dirty=true
+    npx --yes wrangler@latest pages deploy "$DeployDir" --project-name=guanghan-site --branch=$DeployBranch --commit-dirty=true
     Ensure-Success "Cloudflare 部署失败"
 }
 

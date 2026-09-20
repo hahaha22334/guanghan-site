@@ -4,10 +4,12 @@ Single-page static site about Guanghan/Sanxingdui. Pure HTML/CSS/JS in `index.ht
 
 ## Deployment
 
-```bash
+```powershell
 # Every time after changing files:
-npx wrangler pages deploy . --project-name=guanghan-site
+npm run publish
 ```
+
+The publish script creates an allowlisted `dist/` directory and deploys that directory only. Never deploy the repository root.
 
 **Do NOT use Git-integrated Cloudflare Pages** — the build environment generates a `workerd` binary (~119MB) inside `node_modules/` that exceeds the 25MB asset limit. Project already exists on Cloudflare; no `project create` needed.
 
@@ -27,7 +29,7 @@ Use this for routine updates from the user's own PowerShell session. It will:
 3. Check that `images/` and `index.html` exist.
 4. Run `git add .`, commit, and push to `origin master`.
 5. Check Cloudflare login with `npx --yes wrangler@latest whoami`.
-6. Deploy with `npx --yes wrangler@latest pages deploy $PSScriptRoot --project-name=guanghan-site --branch=master --commit-dirty=true`.
+6. Build an allowlisted `dist/` directory and deploy it with `npx --yes wrangler@latest pages deploy $DeployDir --project-name=guanghan-site --branch=<preview|master> --commit-dirty=true`.
 
 Useful variants:
 
@@ -46,21 +48,26 @@ powershell -ExecutionPolicy Bypass -File .\publish.ps1 -SkipDeploy
 
 ## GitHub + Cloudflare Update Flow
 
-Correct update flow is:
+Correct production update flow from the repository root is:
 
 ```powershell
-cd D:\code
 npm run publish
+```
+
+For a review URL before production:
+
+```powershell
+npm run publish:preview
 ```
 
 Manual equivalent:
 
 ```powershell
-cd D:\code
 git add .
 git commit -m "Update Guanghan site"
 git push origin master
-npx --yes wrangler@latest pages deploy D:\code --project-name=guanghan-site --branch=master --commit-dirty=true
+npm run build
+npx --yes wrangler@latest pages deploy dist --project-name=guanghan-site --branch=master --commit-dirty=true
 ```
 
 The production URL is `https://guanghan-site.pages.dev`. Wrangler may also print a preview URL like `https://<hash>.guanghan-site.pages.dev`; that preview URL is useful for checking the exact deployment.
@@ -69,11 +76,12 @@ Deployment is only successful when Wrangler prints `Success`, `Deploying`, and `
 
 ## Windows / Codex Sandbox Gotchas
 
-- Codex may be able to edit files in `D:\code` but still fail to write `.git/index`, causing `git add` or `git commit` to fail with `Unable to create 'D:/code/.git/index.lock': Permission denied`. In that case, ask the user to run `npm run publish` locally.
+- An agent may be able to edit repository files but still fail to write `.git/index` because of sandbox permissions. In that case, ask the user to run `npm run publish` from their own PowerShell session.
 - Codex may not have the user's GitHub credentials, causing `git push` failures such as `SEC_E_NO_CREDENTIALS`. The user's own PowerShell session usually has the right credentials.
 - Codex may not have the user's Cloudflare interactive login. Wrangler may say the OAuth token expired or ask for `CLOUDFLARE_API_TOKEN`. The user should run `npx --yes wrangler@latest login` locally if needed.
 - If `npx wrangler` uses a project-local cache (`.npm-cache/`), it may create `workerd` under `.npm-cache/_npx/...`. If that process is still running, deleting the cache can warn with `EBUSY`. Stop it with `Get-Process workerd -ErrorAction SilentlyContinue | Stop-Process -Force`.
-- `.cloudflareignore` must include `.npm-cache/` and `.wrangler/`. Otherwise `wrangler pages deploy .` can scan/upload cache files, including `workerd`, leading to large asset or stale deployment problems.
+- Do not deploy the repository root. `publish.ps1` builds an allowlisted `dist/` directory containing only HTML, `images/`, `_headers`, and `_redirects`, preventing development files or caches from becoming public.
+- `.cloudflareignore` remains defense in depth but is not the publication boundary; `dist/` is the publication boundary.
 - Do not rely on Cloudflare Git integration for this project. The working production path is still Wrangler CLI deploy.
 
 ## Image Rules
@@ -113,4 +121,8 @@ Mobile-first: default → 768px (tablet) → 1024px (desktop). Test all three.
 |---------|---------|
 | `npm start` | Local preview via `npx serve .` |
 | `npm run optimize-images` | Regenerate WebP/AVIF variants |
-| `npx wrangler pages deploy . --project-name=guanghan-site` | Deploy to production |
+| `npm run build` | Build the allowlisted static `dist/` directory without deploying |
+| `npm run deploy:preview` | Build and deploy current local files to a preview branch without Git commit |
+| `npm run deploy:production` | Deploy current local files to production without Git commit |
+| `npm run publish:preview` | Commit/push, then deploy a preview |
+| `npm run publish` | Commit/push, then deploy to production |

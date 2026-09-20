@@ -1,9 +1,19 @@
+# Dependency, VCS, and deployment caches
 node_modules/
-.cloudflareignore
-.gitignore
+dist/
 .git/
 .gitattributes
-package-lock.json
-优化图片.js
+.gitignore
+.cloudflareignore
 .npm-cache/
 .wrangler/
+*.log
+
+# Local development and publishing files
+package.json
+package-lock.json
+optimize-images.js
+publish.ps1
+AGENTS.md
+注意事项.md
+网站扩展.md

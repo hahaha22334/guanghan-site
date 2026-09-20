@@ -7,9 +7,20 @@ const OUTPUT_DIR = path.join(__dirname, 'images', 'optimized');
 
 const HERO_IMAGES = ['轮放1.jpg', '轮放2.jpg', '轮放3.jpg', '轮放4.jpg'];
 const CONTENT_IMAGES = ['房湖公园.jpg', '金雁湖.jpg', '牛杂火锅.jpg', '城市概况.jpg'];
+const IMPORTED_PORTRAITS = [
+  'fanghu-confucian-temple.webp', 'fanghu-lake-pavilion.webp', 'fanghu-wall-path.webp',
+  'heita-alley.webp', 'heita-tea-stilllife.webp', 'heita-tea-yard.webp', 'heita-teahouse-dusk.webp',
+  'jinyan-sunset.webp',
+  'lianshan-blossom-close.webp', 'lianshan-blossom-hillside.webp', 'lianshan-orchard-path.webp',
+  'luocheng-wall-detail.webp',
+  'museum-bronze-bird.webp', 'museum-bronze-tree.webp', 'museum-standing-figure.webp'
+];
+const IMPORTED_LANDSCAPES = ['museum-bronze-heads.webp', 'museum-gold-bronze.webp', 'museum-gold-gallery.webp'];
 
 const HERO_WIDTHS = [400, 800, 1200, 1920];
 const CONTENT_WIDTHS = [400, 800, 1200];
+const IMPORTED_PORTRAIT_WIDTHS = [400, 800];
+const IMPORTED_LANDSCAPE_WIDTHS = [400, 800, 1200, 1600];
 
 const WEBP_OPTIONS = { quality: 80, effort: 6 };
 const AVIF_OPTIONS = { quality: 70, effort: 7 };
@@ -74,6 +85,14 @@ async function main() {
 
   for (const img of CONTENT_IMAGES) {
     await processImage(img, CONTENT_WIDTHS, false);
+  }
+
+  for (const img of IMPORTED_PORTRAITS) {
+    await processImage(path.join('external', img), IMPORTED_PORTRAIT_WIDTHS);
+  }
+
+  for (const img of IMPORTED_LANDSCAPES) {
+    await processImage(path.join('external', img), IMPORTED_LANDSCAPE_WIDTHS);
   }
 
   console.log('\n' + '='.repeat(50));

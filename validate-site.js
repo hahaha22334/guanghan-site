@@ -60,11 +60,54 @@ for (const [file, html] of htmlByFile) {
     if (html.includes(needle)) fail(file, message);
   }
 
-  const images = html.match(/<img\b[^>]*>/gi) || [];
-  for (const tag of images) {
+  const imageMatches = [...html.matchAll(/<img\b[^>]*>/gi)];
+  for (const match of imageMatches) {
+    const tag = match[0];
+    const src = attr(tag, 'src');
     if (!/\balt\s*=\s*(["']).*?\1/i.test(tag)) fail(file, `图片缺少 alt：${tag.slice(0, 100)}`);
     if (!/\bwidth\s*=\s*(["'])\d+\1/i.test(tag) || !/\bheight\s*=\s*(["'])\d+\1/i.test(tag)) {
-      fail(file, `图片缺少 width/height：${attr(tag, 'src') || tag.slice(0, 80)}`);
+      fail(file, `图片缺少 width/height：${src || tag.slice(0, 80)}`);
+    }
+    if (!src || /^(?:https?:|data:)/i.test(src)) continue;
+
+    const openPicture = html.lastIndexOf('<picture', match.index);
+    const previousClose = html.lastIndexOf('</picture>', match.index);
+    const closePicture = html.indexOf('</picture>', match.index + tag.length);
+    if (openPicture < 0 || openPicture < previousClose || closePicture < 0) {
+      fail(file, `本地图片必须位于 picture 内：${src}`);
+      continue;
+    }
+
+    const loading = attr(tag, 'loading');
+    if (!['eager', 'lazy'].includes(loading)) fail(file, `图片 loading 必须为 eager 或 lazy：${src}`);
+    if (attr(tag, 'decoding') !== 'async') fail(file, `图片缺少 decoding="async"：${src}`);
+    if (loading === 'eager' && attr(tag, 'fetchpriority') !== 'high') fail(file, `首屏图缺少 fetchpriority="high"：${src}`);
+    if (loading === 'lazy' && attr(tag, 'fetchpriority') === 'high') fail(file, `懒加载图片不应设置高优先级：${src}`);
+
+    const picture = html.slice(openPicture, closePicture + '</picture>'.length);
+    const sources = picture.match(/<source\b[^>]*>/gi) || [];
+    if (sources.length < 2) {
+      fail(file, `picture 缺少 AVIF/WebP source：${src}`);
+      continue;
+    }
+    if (attr(sources[0], 'type') !== 'image/avif' || attr(sources[1], 'type') !== 'image/webp') {
+      fail(file, `picture source 顺序必须为 AVIF → WebP：${src}`);
+    }
+    for (const source of sources.slice(0, 2)) {
+      const srcset = attr(source, 'srcset');
+      if (!srcset) fail(file, `source 缺少 srcset：${src}`);
+      if (!attr(source, 'sizes')) fail(file, `source 缺少 sizes：${src}`);
+      for (const candidate of srcset.split(',')) {
+        const [resource, descriptor] = candidate.trim().split(/\s+/);
+        if (!resource || !descriptor) {
+          fail(file, `srcset 候选缺少宽度描述：${src}`);
+          continue;
+        }
+        const width = descriptor.match(/^(\d+)w$/);
+        const filenameWidth = resource.match(/-(\d+)w\.(?:avif|webp)$/i);
+        if (!width || !filenameWidth || width[1] !== filenameWidth[1]) fail(file, `srcset 宽度与文件名不一致：${resource} ${descriptor}`);
+        if (!exists(path.normalize(path.join(path.dirname(file), decodeURIComponent(resource))))) fail(file, `srcset 引用不存在：${resource}`);
+      }
     }
   }
 
@@ -129,6 +172,19 @@ for (const file of detailPages) {
   if (!html.includes('class="trip-facts"')) fail(file, '缺少行程事实条');
 }
 
+const requiredEditorialAssets = {
+  'index.html': ['heita-alley', 'heita-tea-stilllife', 'heita-tea-yard', 'heita-teahouse-dusk', 'editorial-atlas'],
+  'sanxingdui-museum.html': ['museum-bronze-heads', 'museum-bronze-tree', 'museum-standing-figure', 'museum-bronze-bird', 'museum-gold-gallery', 'museum-gold-bronze', 'archive-essay'],
+  'luocheng-ruins.html': ['luocheng-wall-detail', 'cinematic-diptych'],
+  'fanghu-park.html': ['fanghu-lake-pavilion', 'fanghu-confucian-temple', 'fanghu-wall-path', 'visual-journal'],
+  'jinyan-lake.html': ['jinyan-sunset', 'cinematic-diptych'],
+  'lianshan-peach.html': ['lianshan-blossom-hillside', 'lianshan-orchard-path', 'lianshan-blossom-close', 'season-sequence']
+};
+for (const [file, needles] of Object.entries(requiredEditorialAssets)) {
+  const html = htmlByFile.get(file) || '';
+  for (const needle of needles) if (!html.includes(needle)) fail(file, `缺少 V2 图片叙事资源或模式：${needle}`);
+}
+
 for (const file of ['assets/css/tokens.css', 'assets/css/site.css', 'assets/css/detail.css', 'assets/js/site.js']) {
   if (!exists(file)) fail(file, '缺少共享资源');
   const content = exists(file) ? fs.readFileSync(path.join(root, file), 'utf8') : '';
@@ -143,6 +199,11 @@ if (!exists('.asset-sources.json')) {
   try {
     const ledger = JSON.parse(fs.readFileSync(path.join(root, '.asset-sources.json'), 'utf8'));
     const recorded = new Set((ledger.assets || []).map((item) => item.sitePath));
+    for (const item of ledger.assets || []) {
+      for (const optimizedPath of item.optimizedPaths || []) {
+        if (!exists(optimizedPath)) fail('.asset-sources.json', `优化文件不存在：${optimizedPath}`);
+      }
+    }
     const usedExternal = new Set();
     for (const html of htmlByFile.values()) {
       for (const match of html.matchAll(/(?:src|srcset)=["'][^"']*(images\/external\/[^\s,"']+)/gi)) usedExternal.add(match[1]);

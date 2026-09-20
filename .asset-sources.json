@@ -2,6 +2,70 @@
   "schemaVersion": 1,
   "assets": [
     {
+      "sitePath": "images/external/fanghu-confucian-temple.webp",
+      "sha256": "0b374b39f9c4b90478b6563d53f5d4c4b5168129af161eb26c13b15562960d06",
+      "sourceAssetId": "sha256:0b374b39f9c4b90478b6563d53f5d4c4b5168129af161eb26c13b15562960d06",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/68a07b87000000001c031c3f",
+      "platform": "xhs",
+      "contentId": "68a07b87000000001c031c3f",
+      "creatorDisplay": "爱***喵",
+      "importedAt": "2026-09-20T15:32:30+00:00",
+      "optimizedPaths": [
+        "images/optimized/fanghu-confucian-temple-400w.avif",
+        "images/optimized/fanghu-confucian-temple-400w.webp",
+        "images/optimized/fanghu-confucian-temple-800w.avif",
+        "images/optimized/fanghu-confucian-temple-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/fanghu-lake-pavilion.webp",
+      "sha256": "34d5076eef63b26c55aefd3e16097fc9f17bb9c4e6d717d2118b967efea495de",
+      "sourceAssetId": "sha256:34d5076eef63b26c55aefd3e16097fc9f17bb9c4e6d717d2118b967efea495de",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/690975dc00000000050318eb",
+      "platform": "xhs",
+      "contentId": "690975dc00000000050318eb",
+      "creatorDisplay": "王***游",
+      "importedAt": "2026-09-20T15:32:02+00:00",
+      "optimizedPaths": [
+        "images/optimized/fanghu-lake-pavilion-400w.avif",
+        "images/optimized/fanghu-lake-pavilion-400w.webp",
+        "images/optimized/fanghu-lake-pavilion-800w.avif",
+        "images/optimized/fanghu-lake-pavilion-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/fanghu-wall-path.webp",
+      "sha256": "1dd3522fee844d20c67f1cfcfa6c1267bfed3cfac2589637d3d845ca2c081b07",
+      "sourceAssetId": "sha256:1dd3522fee844d20c67f1cfcfa6c1267bfed3cfac2589637d3d845ca2c081b07",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/690975dc00000000050318eb",
+      "platform": "xhs",
+      "contentId": "690975dc00000000050318eb",
+      "creatorDisplay": "王***游",
+      "importedAt": "2026-09-20T15:31:48+00:00",
+      "optimizedPaths": [
+        "images/optimized/fanghu-wall-path-400w.avif",
+        "images/optimized/fanghu-wall-path-400w.webp",
+        "images/optimized/fanghu-wall-path-800w.avif",
+        "images/optimized/fanghu-wall-path-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/heita-alley.webp",
+      "sha256": "3f4fdd9c1256dcd721130fd2ea4ee3222f0682036032d5d93ba6dca6fc77c6b7",
+      "sourceAssetId": "sha256:3f4fdd9c1256dcd721130fd2ea4ee3222f0682036032d5d93ba6dca6fc77c6b7",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/681f10500000000023012c9a",
+      "platform": "xhs",
+      "contentId": "681f10500000000023012c9a",
+      "creatorDisplay": "R***9",
+      "importedAt": "2026-09-20T15:34:05+00:00",
+      "optimizedPaths": [
+        "images/optimized/heita-alley-400w.avif",
+        "images/optimized/heita-alley-400w.webp",
+        "images/optimized/heita-alley-800w.avif",
+        "images/optimized/heita-alley-800w.webp"
+      ]
+    },
+    {
       "sitePath": "images/external/heita-street.jpg",
       "sha256": "e68945ea85dd8dad2504b06d4895e434d1d7aeec6a3449f866085e7248c3127b",
       "sourceAssetId": "sha256:e68945ea85dd8dad2504b06d4895e434d1d7aeec6a3449f866085e7248c3127b",
@@ -19,6 +83,54 @@
         "images/optimized/heita-street-400w.webp",
         "images/optimized/heita-street-800w.avif",
         "images/optimized/heita-street-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/heita-tea-stilllife.webp",
+      "sha256": "70b68f642d2209719127553c8f6f242288337077c2f94bdc705f19d99b546350",
+      "sourceAssetId": "sha256:70b68f642d2209719127553c8f6f242288337077c2f94bdc705f19d99b546350",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/681f10500000000023012c9a",
+      "platform": "xhs",
+      "contentId": "681f10500000000023012c9a",
+      "creatorDisplay": "R***9",
+      "importedAt": "2026-09-20T15:34:15+00:00",
+      "optimizedPaths": [
+        "images/optimized/heita-tea-stilllife-400w.avif",
+        "images/optimized/heita-tea-stilllife-400w.webp",
+        "images/optimized/heita-tea-stilllife-800w.avif",
+        "images/optimized/heita-tea-stilllife-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/heita-tea-yard.webp",
+      "sha256": "ff6a114e9a883037b49030e9ee3623a14d8a58679d169b5175697cd537c41599",
+      "sourceAssetId": "sha256:ff6a114e9a883037b49030e9ee3623a14d8a58679d169b5175697cd537c41599",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/698dac00000000000a03ec0d",
+      "platform": "xhs",
+      "contentId": "698dac00000000000a03ec0d",
+      "creatorDisplay": "鱼***录",
+      "importedAt": "2026-09-20T15:33:43+00:00",
+      "optimizedPaths": [
+        "images/optimized/heita-tea-yard-400w.avif",
+        "images/optimized/heita-tea-yard-400w.webp",
+        "images/optimized/heita-tea-yard-800w.avif",
+        "images/optimized/heita-tea-yard-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/heita-teahouse-dusk.webp",
+      "sha256": "44bd02750b6cd5435c22abfc59672923d39c18fb9ba49592248efc8cdb2be3cd",
+      "sourceAssetId": "sha256:44bd02750b6cd5435c22abfc59672923d39c18fb9ba49592248efc8cdb2be3cd",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/681f10500000000023012c9a",
+      "platform": "xhs",
+      "contentId": "681f10500000000023012c9a",
+      "creatorDisplay": "R***9",
+      "importedAt": "2026-09-20T15:33:53+00:00",
+      "optimizedPaths": [
+        "images/optimized/heita-teahouse-dusk-400w.avif",
+        "images/optimized/heita-teahouse-dusk-400w.webp",
+        "images/optimized/heita-teahouse-dusk-800w.avif",
+        "images/optimized/heita-teahouse-dusk-800w.webp"
       ]
     },
     {
@@ -82,6 +194,70 @@
       ]
     },
     {
+      "sitePath": "images/external/jinyan-sunset.webp",
+      "sha256": "10ffcac69fcff285f4ab743e3a3f8d9de1d9d9989b71d82a4957340c8384c519",
+      "sourceAssetId": "sha256:10ffcac69fcff285f4ab743e3a3f8d9de1d9d9989b71d82a4957340c8384c519",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a01c49d0000000037036e67",
+      "platform": "xhs",
+      "contentId": "6a01c49d0000000037036e67",
+      "creatorDisplay": "月*",
+      "importedAt": "2026-09-20T15:32:44+00:00",
+      "optimizedPaths": [
+        "images/optimized/jinyan-sunset-400w.avif",
+        "images/optimized/jinyan-sunset-400w.webp",
+        "images/optimized/jinyan-sunset-800w.avif",
+        "images/optimized/jinyan-sunset-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/lianshan-blossom-close.webp",
+      "sha256": "b1df3de741170e4bc92255fbf7e6dfab1a033c7f57050470684932ebf4ba205d",
+      "sourceAssetId": "sha256:b1df3de741170e4bc92255fbf7e6dfab1a033c7f57050470684932ebf4ba205d",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/69b2ca4d000000002603c5d8",
+      "platform": "xhs",
+      "contentId": "69b2ca4d000000002603c5d8",
+      "creatorDisplay": "🐘***n",
+      "importedAt": "2026-09-20T15:33:13+00:00",
+      "optimizedPaths": [
+        "images/optimized/lianshan-blossom-close-400w.avif",
+        "images/optimized/lianshan-blossom-close-400w.webp",
+        "images/optimized/lianshan-blossom-close-800w.avif",
+        "images/optimized/lianshan-blossom-close-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/lianshan-blossom-hillside.webp",
+      "sha256": "ce8e57fe585bb1ad434ec57a167df8266111195d7e663b7306586d7010fc3774",
+      "sourceAssetId": "sha256:ce8e57fe585bb1ad434ec57a167df8266111195d7e663b7306586d7010fc3774",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/69afc77500000000150336bd",
+      "platform": "xhs",
+      "contentId": "69afc77500000000150336bd",
+      "creatorDisplay": "Y***索",
+      "importedAt": "2026-09-20T15:32:58+00:00",
+      "optimizedPaths": [
+        "images/optimized/lianshan-blossom-hillside-400w.avif",
+        "images/optimized/lianshan-blossom-hillside-400w.webp",
+        "images/optimized/lianshan-blossom-hillside-800w.avif",
+        "images/optimized/lianshan-blossom-hillside-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/lianshan-orchard-path.webp",
+      "sha256": "a4a363e011ec49f977f4b1fa77e52b914f214317200ff36c55045bc3a3f68e27",
+      "sourceAssetId": "sha256:a4a363e011ec49f977f4b1fa77e52b914f214317200ff36c55045bc3a3f68e27",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/69b2ca4d000000002603c5d8",
+      "platform": "xhs",
+      "contentId": "69b2ca4d000000002603c5d8",
+      "creatorDisplay": "🐘***n",
+      "importedAt": "2026-09-20T15:33:30+00:00",
+      "optimizedPaths": [
+        "images/optimized/lianshan-orchard-path-400w.avif",
+        "images/optimized/lianshan-orchard-path-400w.webp",
+        "images/optimized/lianshan-orchard-path-800w.avif",
+        "images/optimized/lianshan-orchard-path-800w.webp"
+      ]
+    },
+    {
       "sitePath": "images/external/lianshan-pork-chef.webp",
       "sha256": "1980f0ad744a9bdba0c00c04116054935da95ab2dbfcc91e94090d26c94ca51e",
       "sourceAssetId": "sha256:1980f0ad744a9bdba0c00c04116054935da95ab2dbfcc91e94090d26c94ca51e",
@@ -131,6 +307,130 @@
         "images/optimized/luocheng-gate-400w.webp",
         "images/optimized/luocheng-gate-800w.avif",
         "images/optimized/luocheng-gate-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/luocheng-wall-detail.webp",
+      "sha256": "bdd6244fb363b9f1c1e20233afc6464cda175ed0831ff90c366395435613478d",
+      "sourceAssetId": "sha256:bdd6244fb363b9f1c1e20233afc6464cda175ed0831ff90c366395435613478d",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/690975dc00000000050318eb",
+      "platform": "xhs",
+      "contentId": "690975dc00000000050318eb",
+      "creatorDisplay": "王***游",
+      "importedAt": "2026-09-20T15:32:18+00:00",
+      "optimizedPaths": [
+        "images/optimized/luocheng-wall-detail-400w.avif",
+        "images/optimized/luocheng-wall-detail-400w.webp",
+        "images/optimized/luocheng-wall-detail-800w.avif",
+        "images/optimized/luocheng-wall-detail-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/museum-bronze-bird.webp",
+      "sha256": "ecd69d31bac6a04cc230350ad8a11c23d7aee748fdc6e7e4c663c723a04c9e17",
+      "sourceAssetId": "sha256:ecd69d31bac6a04cc230350ad8a11c23d7aee748fdc6e7e4c663c723a04c9e17",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a7eaed6000000002202eb30",
+      "platform": "xhs",
+      "contentId": "6a7eaed6000000002202eb30",
+      "creatorDisplay": "闲***哥",
+      "importedAt": "2026-09-20T15:31:33+00:00",
+      "optimizedPaths": [
+        "images/optimized/museum-bronze-bird-400w.avif",
+        "images/optimized/museum-bronze-bird-400w.webp",
+        "images/optimized/museum-bronze-bird-800w.avif",
+        "images/optimized/museum-bronze-bird-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/museum-bronze-heads.webp",
+      "sha256": "8d0abc1fee870635f2e8acdbde5e8452954a18f7d00e3f2d845d7ec636658870",
+      "sourceAssetId": "sha256:8d0abc1fee870635f2e8acdbde5e8452954a18f7d00e3f2d845d7ec636658870",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/66dd3727000000001e01a689",
+      "platform": "xhs",
+      "contentId": "66dd3727000000001e01a689",
+      "creatorDisplay": "长***包",
+      "importedAt": "2026-09-20T15:30:08+00:00",
+      "optimizedPaths": [
+        "images/optimized/museum-bronze-heads-1200w.avif",
+        "images/optimized/museum-bronze-heads-1200w.webp",
+        "images/optimized/museum-bronze-heads-1600w.avif",
+        "images/optimized/museum-bronze-heads-1600w.webp",
+        "images/optimized/museum-bronze-heads-400w.avif",
+        "images/optimized/museum-bronze-heads-400w.webp",
+        "images/optimized/museum-bronze-heads-800w.avif",
+        "images/optimized/museum-bronze-heads-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/museum-bronze-tree.webp",
+      "sha256": "b0c1d7d408d80d1e0a556c23a60a0b8a11b947f5515415dbe7db5ccfdf45383e",
+      "sourceAssetId": "sha256:b0c1d7d408d80d1e0a556c23a60a0b8a11b947f5515415dbe7db5ccfdf45383e",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a7eaed6000000002202eb30",
+      "platform": "xhs",
+      "contentId": "6a7eaed6000000002202eb30",
+      "creatorDisplay": "闲***哥",
+      "importedAt": "2026-09-20T15:31:23+00:00",
+      "optimizedPaths": [
+        "images/optimized/museum-bronze-tree-400w.avif",
+        "images/optimized/museum-bronze-tree-400w.webp",
+        "images/optimized/museum-bronze-tree-800w.avif",
+        "images/optimized/museum-bronze-tree-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/museum-gold-bronze.webp",
+      "sha256": "164f1b7c7cb5bbd3871411fb529c5ec07e34fa84dc1b6ab7ee85bfb6337590bf",
+      "sourceAssetId": "sha256:164f1b7c7cb5bbd3871411fb529c5ec07e34fa84dc1b6ab7ee85bfb6337590bf",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a697b57000000001102d8e0",
+      "platform": "xhs",
+      "contentId": "6a697b57000000001102d8e0",
+      "creatorDisplay": "移***南",
+      "importedAt": "2026-09-20T15:31:10+00:00",
+      "optimizedPaths": [
+        "images/optimized/museum-gold-bronze-1200w.avif",
+        "images/optimized/museum-gold-bronze-1200w.webp",
+        "images/optimized/museum-gold-bronze-1600w.avif",
+        "images/optimized/museum-gold-bronze-1600w.webp",
+        "images/optimized/museum-gold-bronze-400w.avif",
+        "images/optimized/museum-gold-bronze-400w.webp",
+        "images/optimized/museum-gold-bronze-800w.avif",
+        "images/optimized/museum-gold-bronze-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/museum-gold-gallery.webp",
+      "sha256": "98e4e09d51086a247cc38b963b0f7e6662d91c436c9a4d8da2216774368cdf81",
+      "sourceAssetId": "sha256:98e4e09d51086a247cc38b963b0f7e6662d91c436c9a4d8da2216774368cdf81",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a697b57000000001102d8e0",
+      "platform": "xhs",
+      "contentId": "6a697b57000000001102d8e0",
+      "creatorDisplay": "移***南",
+      "importedAt": "2026-09-20T15:30:39+00:00",
+      "optimizedPaths": [
+        "images/optimized/museum-gold-gallery-1200w.avif",
+        "images/optimized/museum-gold-gallery-1200w.webp",
+        "images/optimized/museum-gold-gallery-1600w.avif",
+        "images/optimized/museum-gold-gallery-1600w.webp",
+        "images/optimized/museum-gold-gallery-400w.avif",
+        "images/optimized/museum-gold-gallery-400w.webp",
+        "images/optimized/museum-gold-gallery-800w.avif",
+        "images/optimized/museum-gold-gallery-800w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/museum-standing-figure.webp",
+      "sha256": "d13fa07abb396a588549bdb0c18e83174d6e43667a6d69011054a9cafa7f45ba",
+      "sourceAssetId": "sha256:d13fa07abb396a588549bdb0c18e83174d6e43667a6d69011054a9cafa7f45ba",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6a7eaed6000000002202eb30",
+      "platform": "xhs",
+      "contentId": "6a7eaed6000000002202eb30",
+      "creatorDisplay": "闲***哥",
+      "importedAt": "2026-09-20T15:31:15+00:00",
+      "optimizedPaths": [
+        "images/optimized/museum-standing-figure-400w.avif",
+        "images/optimized/museum-standing-figure-400w.webp",
+        "images/optimized/museum-standing-figure-800w.avif",
+        "images/optimized/museum-standing-figure-800w.webp"
       ]
     },
     {

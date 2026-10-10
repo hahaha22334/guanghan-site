@@ -9,7 +9,7 @@
     "content": "node scripts/build-content.js",
     "audit-content": "node scripts/audit-content.js",
     "validate": "node validate-site.js",
-    "test": "node scripts/build-content.js && node validate-site.js && node --test tests/guide.test.js",
+    "test": "node scripts/build-content.js && node validate-site.js && node --test tests/guide.test.js tests/motion.test.js",
     "build": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -SkipDeploy",
     "deploy:preview": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -Preview",
     "deploy:production": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit",

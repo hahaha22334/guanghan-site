@@ -83,6 +83,9 @@ $RequiredFiles = $RequiredPages + @(
     "assets/js/guide-data.js",
     "assets/css/discovery.css",
     "assets/css/readability.css",
+    "assets/css/motion.css",
+    "assets/js/motion.js",
+    "assets/js/motion-preference.js",
     "assets/js/discovery.js",
     "sitemap.xml",
     "robots.txt"

@@ -12,9 +12,12 @@ const expectedPages = [
   'old-town.html',
   'guanghan-food.html',
   'routes.html',
-  'my-trip.html'
+  'my-trip.html',
+  'guide.html',
+  'explore.html',
+  'travel.html'
 ];
-const detailPages = expectedPages.filter((file) => !['index.html', 'routes.html', 'my-trip.html'].includes(file));
+const detailPages = expectedPages.filter((file) => !['index.html', 'routes.html', 'my-trip.html', 'guide.html', 'explore.html', 'travel.html'].includes(file));
 const errors = [];
 const warnings = [];
 const htmlByFile = new Map();
@@ -177,7 +180,10 @@ for (const file of detailPages) {
 }
 
 const requiredEditorialAssets = {
-  'index.html': ['heita-alley', 'heita-tea-stilllife', 'heita-tea-yard', 'heita-teahouse-dusk', 'editorial-atlas'],
+  'index.html': ['guide.html', 'travel.html', 'home-orientation'],
+  'old-town.html': ['heita-alley', 'heita-tea-stilllife', 'heita-tea-yard', 'heita-teahouse-dusk'],
+  'guide.html': ['guide-tree','guide-branch','explore.html','travel.html','my-trip.html'],
+  'travel.html': ['guanghan-north-station','sanxingdui-station','practical-list'],
   'sanxingdui-museum.html': ['museum-bronze-heads', 'museum-bronze-tree', 'museum-standing-figure', 'museum-bronze-bird', 'museum-gold-gallery', 'museum-gold-bronze', 'archive-essay'],
   'luocheng-ruins.html': ['luocheng-wall-detail', 'cinematic-diptych'],
   'fanghu-park.html': ['fanghu-lake-pavilion', 'fanghu-confucian-temple', 'fanghu-wall-path', 'visual-journal'],

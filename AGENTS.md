@@ -2,7 +2,7 @@
 
 ## Current architecture (2026-10-10)
 
-The site now has ten static pages. Editable travel data is `content/guide.json`; existing attraction body templates are `content/details/*.html`; shared page generation is `scripts/build-content.js`. Root HTML and `assets/js/guide-data.js` are generated: edit the sources, then run `npm run content`. Run `npm test` and `npm run build` before deployment. `npm run audit-content` regenerates the editorial maintenance checklist. No framework or runtime backend has been added. Added interaction styles/scripts live in `assets/css/experience.css` and `assets/js/experience.js`.
+The site now has thirteen static pages. The homepage is curated; `guide.html` provides four linked branches, `explore.html` holds all destinations/map/seasons, and `travel.html` holds transport/practical notes/FAQ. Editable travel data is `content/guide.json` and `content/travel.json`; existing attraction body templates are `content/details/*.html`; shared page generation is `scripts/build-content.js` and `scripts/build-discovery.js`. Root HTML and `assets/js/guide-data.js` are generated: edit the sources, then run `npm run content`. Run `npm test` and `npm run build` before deployment. `npm run audit-content` regenerates the editorial maintenance checklist. No framework or runtime backend has been added. Interaction styles/scripts live in `assets/css/experience.css`, `assets/js/experience.js`, `assets/css/discovery.css`, and `assets/js/discovery.js`. When adding pages or routes, update the guide branches and tests. New transport photos require visible creator/source/date/license and retain CC BY-SA 4.0 on derivatives.
 
 Deployment still uses the existing allowlisted `dist/` and Wrangler flow below. The current publication allowlist includes `assets/`, `sitemap.xml` and `robots.txt`; it excludes `content/`, scripts, tests, source ledgers and maintenance documents. Hero uses one image; historical carousel notes below only describe the older version. The current design system remains authoritative for visual rules.
 
@@ -30,8 +30,8 @@ npm run publish
 
 Use this for routine updates from the user's own PowerShell session. It will:
 
-1. Stop any `workerd` process that may lock npm cache files.
-2. Remove `.npm-cache/` from the project root.
+1. Resolve cleanup and publication paths within the project.
+2. Remove the project-local `.npm-cache/` if present; never stop unrelated processes.
 3. Check that `images/` and `index.html` exist.
 4. Run `git add .`, commit, and push to `origin master`.
 5. Check Cloudflare login with `npx --yes wrangler@latest whoami`.
@@ -86,7 +86,7 @@ Deployment is only successful when Wrangler prints `Success`, `Deploying`, and `
 - Codex may not have the user's GitHub credentials, causing `git push` failures such as `SEC_E_NO_CREDENTIALS`. The user's own PowerShell session usually has the right credentials.
 - Codex may not have the user's Cloudflare interactive login. Wrangler may say the OAuth token expired or ask for `CLOUDFLARE_API_TOKEN`. The user should run `npx --yes wrangler@latest login` locally if needed.
 - If `npx wrangler` uses a project-local cache (`.npm-cache/`), it may create `workerd` under `.npm-cache/_npx/...`. If that process is still running, deleting the cache can warn with `EBUSY`. Stop it with `Get-Process workerd -ErrorAction SilentlyContinue | Stop-Process -Force`.
-- Do not deploy the repository root. `publish.ps1` builds an allowlisted `dist/` directory containing only HTML, `images/`, `_headers`, and `_redirects`, preventing development files or caches from becoming public.
+- Do not deploy the repository root. `publish.ps1` builds an allowlisted `dist/` directory containing only HTML, `assets/`, `images/`, SEO files, `_headers`, and `_redirects`, preventing development files or caches from becoming public.
 - `.cloudflareignore` remains defense in depth but is not the publication boundary; `dist/` is the publication boundary.
 - Do not rely on Cloudflare Git integration for this project. The working production path is still Wrangler CLI deploy.
 

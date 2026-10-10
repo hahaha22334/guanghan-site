@@ -67,7 +67,10 @@ $RequiredPages = @(
     "old-town.html",
     "guanghan-food.html",
     "routes.html",
-    "my-trip.html"
+    "my-trip.html",
+    "guide.html",
+    "explore.html",
+    "travel.html"
 )
 $RequiredFiles = $RequiredPages + @(
     "assets/css/tokens.css",
@@ -78,6 +81,8 @@ $RequiredFiles = $RequiredPages + @(
     "assets/css/experience.css",
     "assets/js/experience.js",
     "assets/js/guide-data.js",
+    "assets/css/discovery.css",
+    "assets/js/discovery.js",
     "sitemap.xml",
     "robots.txt"
 )

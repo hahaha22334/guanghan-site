@@ -470,6 +470,56 @@
         "images/optimized/sanxingdui-hero-800w.avif",
         "images/optimized/sanxingdui-hero-800w.webp"
       ]
+    },
+    {
+      "sitePath": "images/external/guanghan-north-station.jpg",
+      "sha256": "feead6287d0bb35b7504dcfa4e9ea3643de611c33a114d2d46b538fa34780520",
+      "sourceAssetId": "sha256:feead6287d0bb35b7504dcfa4e9ea3643de611c33a114d2d46b538fa34780520",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%B9%BF%E6%B1%89%E5%8C%97%E7%AB%99.jpg",
+      "platform": "wikimedia-commons",
+      "creatorDisplay": "Liuxingy",
+      "capturedAt": "2018-05-20",
+      "importedAt": "2026-10-10",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "Responsive resizing and AVIF/WebP compression; displayed with layout cropping. Adapted images retain CC BY-SA 4.0.",
+      "location": "广汉北站站台，从列车内拍摄",
+      "purpose": "出行指南：识别铁路车站；有拍摄日期的历史影像，不作为现行服务说明。",
+      "optimizedPaths": [
+        "images/optimized/guanghan-north-station-400w.avif",
+        "images/optimized/guanghan-north-station-400w.webp",
+        "images/optimized/guanghan-north-station-800w.avif",
+        "images/optimized/guanghan-north-station-800w.webp",
+        "images/optimized/guanghan-north-station-1200w.avif",
+        "images/optimized/guanghan-north-station-1200w.webp",
+        "images/optimized/guanghan-north-station-1600w.avif",
+        "images/optimized/guanghan-north-station-1600w.webp"
+      ]
+    },
+    {
+      "sitePath": "images/external/sanxingdui-station.jpg",
+      "sha256": "f6347fe61555d31616ab9fefb90199f4a5202ba27c7b3f3495616e6e1d0cc4df",
+      "sourceAssetId": "sha256:f6347fe61555d31616ab9fefb90199f4a5202ba27c7b3f3495616e6e1d0cc4df",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanxingdui_Railway_Station,_December_2024,_03.jpg",
+      "platform": "wikimedia-commons",
+      "creatorDisplay": "Underbar dk",
+      "capturedAt": "2024-12-10",
+      "importedAt": "2026-10-10",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "Responsive resizing and AVIF/WebP compression; displayed with layout cropping. Adapted images retain CC BY-SA 4.0.",
+      "location": "广汉三星堆铁路站站前",
+      "purpose": "出行指南：识别铁路车站；有拍摄日期的历史影像，不作为现行服务说明。",
+      "optimizedPaths": [
+        "images/optimized/sanxingdui-station-400w.avif",
+        "images/optimized/sanxingdui-station-400w.webp",
+        "images/optimized/sanxingdui-station-800w.avif",
+        "images/optimized/sanxingdui-station-800w.webp",
+        "images/optimized/sanxingdui-station-1200w.avif",
+        "images/optimized/sanxingdui-station-1200w.webp",
+        "images/optimized/sanxingdui-station-1600w.avif",
+        "images/optimized/sanxingdui-station-1600w.webp"
+      ]
     }
   ]
 }

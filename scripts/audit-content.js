@@ -1,9 +1,12 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const data = require('../content/guide.json');
+const travel = require('../content/travel.json');
 const today = new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Shanghai'});
 const lines = [`# 广汉旅行内容维护清单`, '', `检查日期：${today}`, '', '日期指背景资料的整理时间，不代表票务、花期、交通或门店营业已经实时核验。', '', '| 地点 | 背景资料日期 | 复查入口 | 维护重点 |', '|---|---|---|---|'];
 for (const p of data.places) lines.push(`| ${p.name} | ${p.backgroundDate} | [${p.sourceLabel}](${p.source}) | ${p.tip} |`);
-lines.push('', '## 每次内容更新', '', '1. 修改 content/guide.json 中的地点、路线、四季或问答；核实后才更新对应背景资料日期。', '2. 景点正文在 content/details/，公共版式在 scripts/build-content.js。', '3. 运行 npm test，再运行 npm run build。', '4. 检查手机、平板、桌面的受影响页面；部署预览后再发布。', '', '## 素材工作流', '', '继续使用工作区中的 guanghan-media-sourcing 流程。新增图片先挑选、登记来源，再生成 AVIF/WebP。已有导入图片复用时保留 .asset-sources.json；该台账不进入公开目录。', '');
+lines.push('', '## 出行信息与来源范围', '', `整理日期：${travel.reviewDate}。此日期不是实时班次或设施可用性确认。`, '', '| 来源入口 | 可支持的范围 |', '|---|---|');
+for(const source of travel.sources) lines.push(`| [${source.name}](${source.url}) | ${source.scope} |`);
+lines.push('', '## 每次内容更新', '', '1. 修改 content/guide.json 中的地点、路线、四季或问答；核实后才更新对应背景资料日期。', '2. 出行资料和照片署名在 content/travel.json；导图、首页、探索与出行版式在 scripts/build-discovery.js。新页面或路线加入后同步导图节点。', '3. 景点正文在 content/details/，公共导航、页脚与其他版式在 scripts/build-content.js。', '4. 运行 npm test，再运行 npm run build。', '5. 检查手机、平板、桌面的受影响页面；部署预览后再发布。', '', '## 素材工作流', '', '继续使用工作区中的 guanghan-media-sourcing 流程。新增图片先挑选、登记来源，再生成 AVIF/WebP。已有导入图片复用时保留 .asset-sources.json；该台账不进入公开目录。两张开放许可的车站照片及适配版本沿用 CC BY-SA 4.0；公开页面保留署名、来源、日期与改动说明。', '');
 fs.writeFileSync(path.join(__dirname,'../内容维护清单.md'),lines.join('\n'),'utf8');
 console.log('已更新 内容维护清单.md');

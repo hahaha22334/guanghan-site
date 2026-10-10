@@ -20,27 +20,36 @@ function Ensure-Success($Text) {
 }
 
 Step "清理临时缓存，避免 Cloudflare 上传 workerd"
-Get-Process workerd -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-Remove-Item "$PSScriptRoot\.npm-cache" -Recurse -Force -ErrorAction SilentlyContinue
+$WorkspaceRoot = [System.IO.Path]::GetFullPath($PSScriptRoot)
+$CacheDir = [System.IO.Path]::GetFullPath((Join-Path $WorkspaceRoot ".npm-cache"))
+if ($CacheDir -ne (Join-Path $WorkspaceRoot ".npm-cache")) { throw "缓存路径超出项目目录" }
+if (Test-Path -LiteralPath $CacheDir) {
+    Remove-Item -LiteralPath $CacheDir -Recurse -Force -ErrorAction SilentlyContinue
+}
 
 Step "检查本地图片目录"
 if (-not (Test-Path "$PSScriptRoot\images")) { throw "缺少 images 目录" }
 if (-not (Test-Path "$PSScriptRoot\index.html")) { throw "缺少 index.html" }
 Write-Host "基础文件检查通过" -ForegroundColor Green
 
+Step "生成统一旅行内容"
+node "$PSScriptRoot\scripts\build-content.js"
+Ensure-Success "旅行内容生成失败"
+
 Step "验证站点结构、资源与元数据"
 node "$PSScriptRoot\validate-site.js"
 Ensure-Success "站点验证失败"
 
 Step "准备干净的 Cloudflare 上传目录"
-$DeployDir = Join-Path $PSScriptRoot "dist"
-Remove-Item $DeployDir -Recurse -Force -ErrorAction SilentlyContinue
+$DeployDir = [System.IO.Path]::GetFullPath((Join-Path $WorkspaceRoot "dist"))
+if ($DeployDir -ne (Join-Path $WorkspaceRoot "dist")) { throw "上传目录超出项目目录" }
+Remove-Item -LiteralPath $DeployDir -Recurse -Force -ErrorAction SilentlyContinue
 New-Item $DeployDir -ItemType Directory -Force | Out-Null
 
 Get-ChildItem $PSScriptRoot -Filter "*.html" -File | Copy-Item -Destination $DeployDir -Force
 Copy-Item (Join-Path $PSScriptRoot "images") -Destination $DeployDir -Recurse -Force
 Copy-Item (Join-Path $PSScriptRoot "assets") -Destination $DeployDir -Recurse -Force
-foreach ($SpecialFile in @("_headers", "_redirects")) {
+foreach ($SpecialFile in @("_headers", "_redirects", "sitemap.xml", "robots.txt")) {
     $SourceFile = Join-Path $PSScriptRoot $SpecialFile
     if (Test-Path $SourceFile) {
         Copy-Item $SourceFile -Destination $DeployDir -Force
@@ -54,14 +63,23 @@ $RequiredPages = @(
     "jinyan-lake.html",
     "lianshan-peach.html",
     "luocheng-ruins.html",
-    "sanxingdui-museum.html"
+    "sanxingdui-museum.html",
+    "old-town.html",
+    "guanghan-food.html",
+    "routes.html",
+    "my-trip.html"
 )
 $RequiredFiles = $RequiredPages + @(
     "assets/css/tokens.css",
     "assets/css/site.css",
     "assets/css/detail.css",
     "assets/js/site.js",
-    "assets/icons.svg"
+    "assets/icons.svg",
+    "assets/css/experience.css",
+    "assets/js/experience.js",
+    "assets/js/guide-data.js",
+    "sitemap.xml",
+    "robots.txt"
 )
 foreach ($RequiredFile in $RequiredFiles) {
     if (-not (Test-Path (Join-Path $DeployDir $RequiredFile))) {

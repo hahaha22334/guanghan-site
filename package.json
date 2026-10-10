@@ -6,8 +6,10 @@
   "scripts": {
     "optimize-images": "node optimize-images.js",
     "start": "npx serve .",
+    "content": "node scripts/build-content.js",
+    "audit-content": "node scripts/audit-content.js",
     "validate": "node validate-site.js",
-    "test": "npm run validate",
+    "test": "node scripts/build-content.js && node validate-site.js && node --test tests/guide.test.js",
     "build": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -SkipDeploy",
     "deploy:preview": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit -Preview",
     "deploy:production": "powershell -ExecutionPolicy Bypass -File ./publish.ps1 -SkipGit",

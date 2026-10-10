@@ -8,9 +8,13 @@ const expectedPages = [
   'luocheng-ruins.html',
   'fanghu-park.html',
   'jinyan-lake.html',
-  'lianshan-peach.html'
+  'lianshan-peach.html',
+  'old-town.html',
+  'guanghan-food.html',
+  'routes.html',
+  'my-trip.html'
 ];
-const detailPages = expectedPages.filter((file) => file !== 'index.html');
+const detailPages = expectedPages.filter((file) => !['index.html', 'routes.html', 'my-trip.html'].includes(file));
 const errors = [];
 const warnings = [];
 const htmlByFile = new Map();
@@ -135,7 +139,7 @@ for (const [file, html] of htmlByFile) {
   for (const { value, kind } of refs) {
     if (/^(?:https?:|mailto:|tel:|data:|javascript:)/i.test(value)) continue;
     const [targetPathRaw, fragment = ''] = value.split('#', 2);
-    const targetPath = decodeURIComponent(targetPathRaw || file);
+    const targetPath = decodeURIComponent((targetPathRaw || file).split('?')[0]);
     const resolved = targetPathRaw ? path.normalize(path.join(path.dirname(file), targetPath)) : file;
     if (targetPathRaw && !exists(resolved)) {
       fail(file, `${kind} 引用不存在：${value}`);

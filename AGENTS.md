@@ -1,5 +1,11 @@
 # AGENTS.md
 
+## Current architecture (2026-10-10)
+
+The site now has ten static pages. Editable travel data is `content/guide.json`; existing attraction body templates are `content/details/*.html`; shared page generation is `scripts/build-content.js`. Root HTML and `assets/js/guide-data.js` are generated: edit the sources, then run `npm run content`. Run `npm test` and `npm run build` before deployment. `npm run audit-content` regenerates the editorial maintenance checklist. No framework or runtime backend has been added. Added interaction styles/scripts live in `assets/css/experience.css` and `assets/js/experience.js`.
+
+Deployment still uses the existing allowlisted `dist/` and Wrangler flow below. The current publication allowlist includes `assets/`, `sitemap.xml` and `robots.txt`; it excludes `content/`, scripts, tests, source ledgers and maintenance documents. Hero uses one image; historical carousel notes below only describe the older version. The current design system remains authoritative for visual rules.
+
 Single-page static site about Guanghan/Sanxingdui. Pure HTML/CSS/JS in `index.html` (~60KB). Chinese (zh-CN).
 
 ## Deployment

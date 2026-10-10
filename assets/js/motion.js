@@ -66,6 +66,7 @@
   // Three scenes; text and calls to action stay still while the photographs change.
   const hero = $('[data-hero-reel]');
   if (hero) {
+    root.classList.add('hero-in-view');
     const scenes = $$('[data-hero-scene]',hero);
     const buttons = $$('[data-hero-select]',hero);
     const controls = $('.hero-reel',hero);
@@ -114,7 +115,9 @@
     window.addEventListener('pagehide',()=>clearTimeout(timer));
     window.addEventListener('pageshow',schedule);
     if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{
-      visible = entries[0].isIntersecting; schedule();
+      visible = entries[0].isIntersecting;
+      root.classList.toggle('hero-in-view',visible);
+      schedule();
     },{threshold:.15}).observe(hero);
     let touch;
     hero.addEventListener('pointerdown',event=>{

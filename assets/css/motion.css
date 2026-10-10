@@ -71,6 +71,7 @@ dialog::backdrop { background: rgba(12,30,25,.82); backdrop-filter: blur(6px); }
 body:has(dialog[open]) { overflow: hidden; }
 .passport-launch { position: fixed; z-index: 70; bottom: 1.5rem; right: 1.5rem; align-items: center; gap: .65rem; padding: .65rem 1rem; min-height: 3rem; color: var(--cream); background: var(--bronze-deep); border: 1px solid var(--gold-light); border-radius: 3rem; font-size: 1rem; box-shadow: 0 4px 18px rgba(23,54,46,.18); cursor: pointer; }
 .passport-launch .icon { width: 1.3rem; height: 1.3rem; color: var(--gold-light); }
+html.hero-in-view .passport-launch { opacity: 0; visibility: hidden; pointer-events: none; }
 .passport-badge { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--cream); color: var(--bronze-deep); font-size: .875rem; }
 .passport-dialog { width: min(42rem,calc(100% - 2rem)); max-height: calc(100dvh - 3rem); padding: 2rem 2.5rem; border: 1px solid var(--gold-light); border-radius: .5rem; background: var(--cream); overflow: auto; }
 .passport-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }

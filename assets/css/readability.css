@@ -1,0 +1,279 @@
+/* Reading hierarchy: one clear heading, readable prose, grouped supporting notes. */
+body { font-size: 1.0625rem; line-height: 1.85; }
+.brand { font-size: 1.2rem; }
+.site-nav a { font-size: 1rem; font-weight: 600; }
+.site-nav .nav-trip { gap: .55rem; }
+[data-trip-count] { min-width: 1.4rem; height: 1.4rem; font-size: .875rem; }
+.btn, .save-button, .hero-secondary { min-height: 3rem; font-size: 1rem; }
+.text-link, .quiet-link, .orientation-link { font-size: 1rem; }
+.section { padding-block: clamp(4rem, 7vw, 6.5rem); }
+.page-label, .hero-location, .context-label { color: var(--gold); font-size: .9375rem; font-weight: 600; letter-spacing: .06em; }
+.hero-location { color: var(--gold-light); }
+.page-intro { gap: 1.35rem; padding-block: 4rem; }
+.page-intro h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); line-height: 1.3; }
+.page-intro > p { max-width: 40rem; font-size: 1.125rem; line-height: 1.9; }
+.section-heading { gap: 1rem; margin-bottom: 2.5rem; }
+.section-heading h2 { max-width: 24ch; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.35; }
+.section-heading p, .prose, .prose p, .visit-card p, .planning-notes p,
+.arrival-panel p, .station-card p, .topic-photo-essay p, .food-story p,
+.image-panel__copy p, .season-spotlight p, .destination-card p,
+.route-panel__intro > p, .schedule-stop p, .trip-row p, .faq-list details p,
+.observation-list p, .highlight-card p, .content-section .notice p,
+.process-strip--large figcaption p, .trip-empty p { font-size: 1.0625rem; line-height: 1.9; }
+.breadcrumb { font-size: .9375rem; }
+.breadcrumb a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.page-jumps { gap: .5rem 1rem; }
+.page-jumps a { min-height: 2.75rem; padding: .5rem .85rem; background: var(--cream); font-size: 1rem; text-decoration: none; border: 1px solid var(--border); }
+.hero-v3__inner { min-height: 37rem; padding-block: 4.5rem; }
+.hero-v3__copy { gap: 1.8rem; }
+.hero-v3 h1 { font-size: clamp(4rem, 7.5vw, 6.5rem); }
+.hero-v3__copy > p { font-size: 1.125rem; line-height: 1.95; }
+.hero__actions { margin-top: .4rem; }
+.home-orientation { padding-block: 3rem; }
+.home-orientation__heading h2 { margin-top: 0; }
+.orientation-steps a { align-items: center; min-height: 5.5rem; padding-block: 1.5rem; }
+.orientation-steps h3 { font: 600 1.2rem/1.5 var(--font-sans); }
+.orientation-steps a > span { font-size: 1.15rem; }
+.home-stories picture { margin-bottom: 1.4rem; }
+.home-stories h3 { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0; font-size: 1.55rem; line-height: 1.55; }
+.home-stories h3 .icon { width: 1.2rem; height: 1.2rem; }
+.section-tail { margin-top: 2rem; font-size: 1rem; }
+.route-teaser { padding: 2.25rem 1.75rem; gap: .9rem; }
+.route-teaser h3 { font-size: 2.25rem; }
+.route-teaser p, .route-teaser > span:last-child { font-size: 1rem; }
+.travel-banner { padding-block: 1.75rem; font-size: 1.125rem; }
+.travel-banner > span:last-child { font-size: 1rem; }
+.season-spotlight article > div { padding: 2.5rem; }
+.guide-intro { padding-block: 3.5rem 2.5rem; }
+.guide-focus { gap: .6rem; margin-top: .5rem; }
+.guide-focus button { font-size: .9375rem; min-height: 2.75rem; }
+.guide-tree { grid-template-columns: 13rem minmax(0,1fr); gap: 3rem; }
+.guide-root { gap: 2rem; padding-block: 3rem; }
+.guide-root h2 { font-size: 2rem; line-height: 1.6; }
+.guide-root a { font-size: 1rem; min-height: 2.75rem; }
+.guide-branches { align-items: start; gap: 1.5rem; }
+.guide-branch { padding: 1.75rem; }
+.guide-branch h2 { font-size: 1.85rem; }
+.guide-branch__head { gap: 1rem; }
+.branch-primary { font-size: 1rem; min-height: 3rem; margin-top: 1.5rem; border-bottom: 0; }
+.branch-groups { grid-template-columns: 1fr; padding: 1.25rem 0 .5rem; gap: 1.5rem; }
+.branch-groups h3 { font-size: .9375rem; color: var(--bronze-dark); }
+.branch-groups li a { font-size: 1rem; min-height: 2.75rem; }
+.guide-reading li a { font-size: 1.0625rem; min-height: 2.75rem; }
+.guide-reading h2 { font-size: 2.25rem; }
+.guide-reading { padding-top: 2.5rem; }
+.route-tab, .image-tabs > a, .arrival-tabs > a { font-size: 1.0625rem; min-height: 3.5rem; }
+.route-panel { gap: 3.5rem; }
+.route-panel h3 { font-size: clamp(2rem, 3vw, 2.7rem); line-height: 1.4; }
+.route-panel__intro { gap: 1.5rem; }
+.route-meta { font-size: 1rem; gap: 1rem; }
+.schedule-stop { grid-template-columns: 4.5rem minmax(0,1fr); gap: 1.25rem; }
+.schedule-stop__time span { font-size: .875rem; }
+.schedule-stop__time strong { font-size: 1.6rem; }
+.schedule-stop h4 { font-size: 1.2rem; }
+.schedule-stop__body { padding-bottom: 2rem; }
+.route-notes { margin-top: .5rem; }
+.destination-card__body { gap: 1rem; padding: 1.5rem; }
+.destination-card h3 { font-size: 1.8rem; line-height: 1.4; }
+.destination-card__bottom > span { font-size: .9375rem; }
+.search-field { min-height: 3.25rem; }
+.search-field input { font-size: 1rem; }
+.filter-pills button { font-size: 1rem; }
+.results-count { font-size: .9375rem; }
+.map-detail { gap: 1.25rem; padding: 2rem; }
+.map-detail > p { font-size: 1.0625rem; }
+.map-detail .map-duration, .map-detail .text-link { font-size: 1rem; }
+.map-pin strong { font-size: .875rem; }
+.map-pin > span { font-size: .875rem; width: 2.2rem; height: 2.2rem; }
+.map-north, .map-disclaimer { font-size: .875rem; }
+.map-drawing text { font-size: 14px; letter-spacing: 0; }
+.station-card figcaption { font-size: .875rem; line-height: 1.8; padding-top: .75rem; }
+.station-card > div .text-link { font-size: 1rem; }
+.station-card h3 { font-size: 2rem; margin-top: 0; }
+.transfer-chain > a span, .transfer-chain > span { font-size: .9375rem; }
+.planning-notes h3 { font-size: 1.5rem; line-height: 1.5; }
+.practical-list summary, .faq-list summary { font-size: 1.125rem; min-height: 3.5rem; }
+.practical-body dl > div { font-size: 1rem; }
+.practical-bridge { padding-block: 1.25rem; border-top: 0; border-bottom: 1px solid var(--border); }
+.practical-bridge > span { display: inline-flex; align-items: center; gap: .6rem; color: var(--bronze-dark); font-size: 1rem; }
+.practical-bridge > a { font-size: 1rem; }
+.trip-facts { margin-top: 0; background: var(--cream); }
+.trip-facts__grid { border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.trip-fact { padding-block: 1.5rem; }
+.trip-fact dt { font-size: .9375rem; letter-spacing: 0; }
+.trip-fact dd { font-size: 1.125rem; line-height: 1.7; margin-top: .35rem; }
+.detail-layout { padding-top: 3.5rem; }
+.detail-toc { padding-top: 0; }
+.detail-toc h2 { font-size: 1rem; }
+.detail-toc a { min-height: 2.75rem; font-size: 1rem; }
+.detail-hero__copy { gap: 1.5rem; }
+.detail-hero__subtitle { font-size: 1.125rem; line-height: 1.9; }
+.detail-hero__actions { gap: 1rem; }
+.detail-hero .btn-primary { background: var(--cream); color: var(--bronze-deep); }
+.detail-hero .btn-secondary { color: var(--cream); border-color: rgba(255,255,255,.6); }
+.detail-hero .btn-secondary:hover { background: var(--cream); color: var(--bronze-deep); }
+.content-section h3 { font-size: 1.4rem; line-height: 1.5; }
+.prose, .route-steps { max-width: 42rem; }
+.route-steps { font-size: 1.0625rem; gap: 1rem; }
+.gallery-card__body { padding: 1rem 1.2rem; font-size: 1rem; }
+.archive-essay figcaption { font-size: 1rem; line-height: 1.85; }
+.highlight-card { padding: 1.75rem; }
+.visit-grid, .topic-visit-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; }
+.visit-grid > .visit-card:first-child { grid-column: 1 / -1; }
+.topic-visit-grid .text-link { font-size: 1rem; }
+.topic-visit-grid .visit-card p { font-size: 1.0625rem; }
+.topic-photo-essay h3 { font-size: 1.6rem; margin-top: 0; }
+.topic-hero__inner > div { gap: 1.5rem; }
+.related-topics h2 { font-size: 2rem; margin-top: 0; }
+.trip-paper__heading h2 { margin-top: 0; font-size: 2.4rem; }
+.trip-settings label { font-size: .9375rem; }
+.trip-settings input, .trip-settings select { font-size: 1rem; min-height: 3rem; }
+.trip-summary { font-size: 1.0625rem; padding: 1.1rem; font-weight: 600; }
+.trip-day-title { font-size: 1rem; letter-spacing: 0; }
+.trip-row h3 { font-size: 1.5rem; line-height: 1.45; }
+.trip-row__meta, .trip-row__controls button, .trip-row__controls select { font-size: .9375rem; }
+.trip-row__meta a { min-height: 2.75rem; }
+.trip-actions { padding-block: 1.5rem; gap: .75rem; }
+.trip-actions .btn { font-size: 1rem; }
+.planner-sidebar h2 { font-size: 1.65rem; margin-top: 0; }
+.checklist-panel label, .saved-place a { font-size: 1rem; }
+.checklist-panel > p, .saved-place small, .text-button { font-size: .9375rem; }
+.saved-empty { font-size: 1rem; }
+.footer-brand p, .footer-nav { font-size: 1rem; }
+.footer-nav a { min-height: 2.75rem; }
+.footer-nav h3 { font-size: 1.0625rem; }
+.footer-bottom { font-size: .875rem; }
+.mobile-action-bar a { font-size: .875rem; }
+
+/* Native disclosures keep secondary material together and work without JavaScript. */
+.reading-details { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.reading-details summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; list-style: none; min-height: 3.5rem; padding: .9rem 0; color: var(--bronze-dark); font: 600 1rem/1.6 var(--font-sans); cursor: pointer; }
+.reading-details summary::-webkit-details-marker { display: none; }
+.reading-details summary .icon { width: 1.15rem; height: 1.15rem; }
+.reading-details[open] > summary .icon { transform: rotate(45deg); }
+.reading-details__body { display: grid; gap: 1.1rem; padding: .5rem 0 1.5rem; max-width: 46rem; color: var(--text-light); font-size: 1rem; line-height: 1.9; }
+.reading-details__body p, .reading-details__body .fine-print, .reading-details__body .storage-note { font-size: 1rem; line-height: 1.9; }
+.reading-details__body .text-link { font-size: 1rem; }
+.reading-details__body ul { padding-left: 1.3rem; }
+.transfer-notes { display: grid; gap: 1.2rem; padding-left: 1.3rem; }
+.transfer-notes strong { color: var(--bronze-dark); }
+.transfer-notes li::marker { color: var(--gold); }
+.source-details { margin-top: 2rem; }
+.source-note { font-size: .875rem; line-height: 1.9; }
+.travel-sources { padding-bottom: 2rem; }
+.branch-directory { margin-top: .25rem; border-bottom: 0; }
+.branch-directory summary { font-size: .9375rem; font-weight: 400; min-height: 2.75rem; }
+.planner-help { margin-bottom: .5rem; }
+.copy-status:empty { display: none; }
+@media (min-width: 64rem) {
+  .detail-layout { grid-template-columns: 12rem minmax(0,1fr); gap: 3rem; }
+}
+@media (max-width: 63.999rem) {
+  .menu-button { display: block; }
+  .site-nav { position: absolute; top: calc(100% + .5rem); right: 1rem; left: 1rem; display: none; padding: .5rem; background: var(--cream-pale); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow); }
+  .site-nav.is-open { display: block; }
+  .site-nav__list { display: grid; }
+  .site-nav a { width: 100%; min-height: 3rem; }
+  .site-nav .nav-trip { margin-left: 0; }
+  .guide-tree { grid-template-columns: 10rem minmax(0,1fr); gap: 2rem; }
+  .guide-branches { grid-template-columns: 1fr; }
+  .guide-root h2 { font-size: 2rem; }
+  .guide-root::after { width: 2rem; }
+  .route-panel { gap: 2rem; }
+  .destination-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 47.999rem) {
+  body { font-size: 1rem; }
+  .container { width: calc(100% - 2.5rem); }
+  .brand { font-size: 1.125rem; }
+  .page-intro { padding-block: 2.75rem; gap: 1.1rem; }
+  .page-intro h1 { font-size: clamp(2.25rem, 8.5vw, 3.5rem); }
+  .page-intro > p { font-size: 1rem; }
+  .section-heading h2 { font-size: 2rem; }
+  .section-heading p, .prose, .prose p, .visit-card p, .planning-notes p,
+  .arrival-panel p, .station-card p, .topic-photo-essay p, .food-story p,
+  .image-panel__copy p, .season-spotlight p, .destination-card p,
+  .route-panel__intro > p, .schedule-stop p, .trip-row p, .faq-list details p,
+  .observation-list p, .highlight-card p, .content-section .notice p,
+  .process-strip--large figcaption p, .trip-empty p { font-size: 1rem; }
+  .hero-v3__inner { min-height: 35rem; padding-block: 3.5rem; }
+  .hero-v3 h1 { font-size: clamp(3.5rem, 16vw, 5.5rem); }
+  .hero-v3__copy { gap: 1.65rem; }
+  .hero-v3__copy > p { font-size: 1rem; }
+  .hero__actions { gap: .75rem; }
+  .hero__actions .btn, .hero-secondary { font-size: .9375rem; }
+  .home-orientation__heading { gap: 1rem; }
+  .home-orientation { padding-block: 2.5rem; }
+  .orientation-steps h3 { font-size: 1.0625rem; }
+  .orientation-steps a { min-height: 5rem; padding-block: 1rem; }
+  .orientation-steps a > span { font-size: 1rem; }
+  .home-stories h3 { font-size: 1.5rem; }
+  .section-tail, .section-tail .text-link { font-size: 1rem; }
+  .route-teaser { display: flex; padding: 1.75rem 0; gap: .75rem; }
+  .route-teaser h3 { font-size: 2rem; }
+  .route-teaser p, .route-teaser > span:last-child { font-size: 1rem; }
+  .travel-banner > span:first-child { font-size: 1.0625rem; }
+  .travel-banner > span:last-child { font-size: 1rem; }
+  .season-spotlight article > div { padding: 1.5rem; }
+  .page-jumps { gap: .5rem; }
+  .page-jumps a { font-size: .9375rem; padding-inline: .65rem; }
+  .guide-intro { padding-top: 2.75rem; }
+  .guide-focus button { font-size: .9375rem; }
+  .guide-tree { grid-template-columns: 1fr; gap: 2rem; }
+  .guide-root { display: none; }
+  .guide-branches { margin: 0; padding: 0; gap: 1.25rem; }
+  .guide-branches::before, .guide-branch::before { display: none; }
+  .guide-branch { padding: 1.5rem; }
+  .guide-branch h2 { font-size: 1.75rem; }
+  .guide-reading li a { font-size: 1rem; }
+  .route-panel { grid-template-columns: 1fr; gap: 2.5rem; }
+  .route-tab { min-width: 7rem; font-size: 1rem; padding-inline: .75rem; }
+  .route-meta { font-size: .9375rem; }
+  .schedule-stop { grid-template-columns: 3.5rem minmax(0,1fr); gap: 1rem; }
+  .schedule-stop__time strong { font-size: 1.4rem; }
+  .schedule-stop h4 { font-size: 1.125rem; }
+  .destination-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .destination-card__body { padding: 1.4rem; }
+  .destination-card h3 { font-size: 1.75rem; }
+  .filter-pills button { padding-inline: .7rem; font-size: .9375rem; }
+  .map-detail { padding: 1.75rem; }
+  .map-pin strong, .map-disclaimer { font-size: .875rem; }
+  .map-disclaimer { left: .75rem; bottom: .75rem; }
+  .arrival-tabs > a { font-size: 1rem; padding-inline: .6rem; }
+  .arrival-panel h3 { font-size: 1.9rem; }
+  .practical-bridge { gap: .25rem; padding-block: 1rem; }
+  .practical-body dl > div { font-size: 1rem; }
+  .detail-layout { padding-top: 2.5rem; }
+  .detail-hero__subtitle { font-size: 1rem; }
+  .detail-hero__actions .btn { font-size: .9375rem; }
+  .trip-facts__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .trip-fact, .topic-page .trip-fact { grid-template-columns: 1fr; padding: 1.1rem 1rem; border-right: 1px solid var(--border); }
+  .trip-fact:nth-child(2n) { border-right: 0; }
+  .trip-fact:nth-last-child(-n+2) { border-bottom: 0; }
+  .trip-fact .icon { display: none; }
+  .trip-fact dt, .topic-page .trip-fact dt { font-size: .875rem; }
+  .trip-fact dd, .topic-page .trip-fact dd { font-size: 1.0625rem; }
+  .visit-grid, .topic-visit-grid { grid-template-columns: 1fr; }
+  .topic-photo-essay h3 { font-size: 1.5rem; }
+  .topic-visit-grid .visit-card p { font-size: 1rem; }
+  .trip-paper { padding: 1.4rem; }
+  .trip-paper__heading h2 { font-size: 1.85rem; }
+  .trip-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .trip-actions .btn { padding-inline: .55rem; font-size: .9375rem; }
+  .trip-row h3 { font-size: 1.35rem; }
+  .trip-row__controls { gap: .5rem; }
+  .reading-details summary { font-size: 1rem; }
+  .footer-bottom { font-size: .875rem; }
+}
+@media print {
+  .page-intro { padding: 1rem; gap: .5rem; }
+  .page-intro h1 { font-size: 2rem; }
+  .section { padding-block: 2rem; }
+  .trip-paper { padding: 1rem; }
+  .guide-tree, .detail-layout { display: block; }
+  .route-panel { grid-template-columns: 1fr; }
+  .reading-details::details-content { content-visibility: visible; }
+  .reading-details:not([open]) > :not(summary) { display: block; }
+  .reading-details summary .icon { display: none; }
+  .branch-directory .branch-groups { display: grid; }
+}

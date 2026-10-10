@@ -4,7 +4,7 @@
 
   const menuButton = document.querySelector('[data-menu-button]');
   const navigation = document.querySelector('[data-navigation]');
-  const mobileQuery = window.matchMedia('(max-width: 47.999rem)');
+  const mobileQuery = window.matchMedia('(max-width: 63.999rem)');
 
   const setMenu = (open, returnFocus = false) => {
     if (!menuButton || !navigation) return;
@@ -85,5 +85,16 @@
 
   document.querySelectorAll('[data-current-year]').forEach((node) => {
     node.textContent = String(new Date().getFullYear());
+  });
+
+  // Include grouped notes on paper, then restore the reader's expanded sections.
+  let printNotes = [];
+  window.addEventListener('beforeprint', () => {
+    printNotes = [...document.querySelectorAll('.reading-details:not([open])')];
+    printNotes.forEach(note => { note.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    printNotes.forEach(note => { note.open = false; });
+    printNotes = [];
   });
 })();

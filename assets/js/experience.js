@@ -118,7 +118,7 @@
       const p = place(button.dataset.mapPlace);
       $$('[data-map-place]',map).forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
       const detail = $('[data-map-detail]',map);
-      detail.innerHTML = `<span class="eyebrow">0${index+1} / ${esc(p.zone)}</span><h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p><p class="map-duration">${icon('clock')}${esc(p.durationLabel)}</p><a class="btn btn-primary" href="${p.page}">查看旅行指南${icon('arrow-right')}</a><button class="btn btn-secondary" type="button" data-add-trip="${p.id}">${icon('plus')}加入行程</button><a class="text-link" href="${mapUrl(p.mapQuery)}" target="_blank" rel="noopener noreferrer">在高德地图查路线${icon('external')}</a>`;
+      detail.innerHTML = `<h3>${esc(p.name)}</h3><p>${esc(p.summary)}</p><p class="map-duration">${icon('clock')}${esc(p.durationLabel)}</p><a class="btn btn-primary" href="${p.page}">查看旅行指南${icon('arrow-right')}</a><button class="btn btn-secondary" type="button" data-add-trip="${p.id}">${icon('plus')}加入行程</button><a class="text-link" href="${mapUrl(p.mapQuery)}" target="_blank" rel="noopener noreferrer">在高德地图查路线${icon('external')}</a>`;
     }));
   }
   const search = $('[data-place-search]');
@@ -195,9 +195,16 @@
     list.replaceChildren();
     $('[data-trip-empty]').hidden = state.stops.length !== 0;
     const total = state.stops.reduce((sum,s)=>sum+place(s.id).duration,0);
-    const label = state.route ? route(state.route).label : '自选行程';
     const days = new Set(state.stops.map(s=>s.day)).size;
-    $('[data-trip-summary]').textContent = state.stops.length ? `${label} · ${state.stops.length} 组停留 · ${days} 天 · 建议停留合计约 ${formatDuration(total)}，另留转场与休息。` : '还没有安排地点，先选一条路线，或从收藏中加入。';
+    $('[data-trip-summary]').textContent = state.stops.length ? `${days} 天 · ${state.stops.length} 站 · 停留约 ${formatDuration(total)}` : '还没有安排地点，先选一条路线，或从收藏中加入。';
+    const transfers = $('[data-trip-transfers]');
+    if (transfers) {
+      const selected = route(state.route);
+      transfers.innerHTML = selected ? `<ol class="transfer-notes">${state.stops.map(stop=>{
+        const step = selected.steps.find(s=>s.place===stop.id&&s.day===stop.day);
+        return step ? `<li><strong>${esc(step.title)}</strong><p>${esc(step.transfer)}</p></li>` : '';
+      }).join('')}</ol>` : '';
+    }
     let currentDay;
     state.stops.forEach((s,index)=>{
       const p = place(s.id);
@@ -205,10 +212,10 @@
       const scheduled = r?.steps.find(step=>step.place===s.id && step.day===s.day);
       if (currentDay !== s.day) {
         currentDay=s.day;
-        const h=document.createElement('h3'); h.className='trip-day-title'; h.textContent=`DAY 0${s.day} / 第${s.day === 1?'一':'二'}天`; list.append(h);
+        const h=document.createElement('h3'); h.className='trip-day-title'; h.textContent=`第${s.day === 1?'一':'二'}天`; list.append(h);
       }
       const article=document.createElement('article'); article.className='trip-row'; article.dataset.tripId=p.id;
-      article.innerHTML=`<span class="trip-row__number">${String(index+1).padStart(2,'0')}</span><div><h3><a href="${p.page}">${p.group==='fanghu'?'雒城与房湖联游':esc(p.name)}</a></h3><p>${scheduled ? `<strong>${scheduled.time} · </strong>${esc(scheduled.note)}` : esc(p.tip)}</p><div class="trip-row__meta"><span>${esc(p.durationLabel)}</span><a href="${mapUrl(scheduled && r.id==='blossom' && p.id==='food'?'广汉连山镇回锅肉':p.mapQuery)}" target="_blank" rel="noopener noreferrer">地图导航${icon('external')}</a></div>${scheduled ? `<p class="trip-transfer">${esc(scheduled.transfer)}</p>` : ''}<div class="trip-row__controls"><button type="button" data-move="up" data-index="${index}" aria-label="上移${esc(p.name)}"${index===0?' disabled':''}>${icon('arrow-up')}</button><button type="button" data-move="down" data-index="${index}" aria-label="下移${esc(p.name)}"${index===state.stops.length-1?' disabled':''}>${icon('arrow-down')}</button><label class="sr-only" for="day-${p.id}">安排${esc(p.name)}在第几天</label><select id="day-${p.id}" data-stop-day="${index}"><option value="1"${s.day===1?' selected':''}>第一天</option><option value="2"${s.day===2?' selected':''}>第二天</option></select><button type="button" class="trip-remove" data-remove="${index}" aria-label="移除${esc(p.name)}">移除</button></div></div>`;
+      article.innerHTML=`<span class="trip-row__number">${String(index+1).padStart(2,'0')}</span><div><h3><a href="${p.page}">${p.group==='fanghu'?'雒城与房湖联游':esc(p.name)}</a></h3><p>${scheduled ? `<strong>${scheduled.time} · </strong>${esc(scheduled.note)}` : esc(p.tip)}</p><div class="trip-row__meta"><span>${esc(p.durationLabel)}</span><a href="${mapUrl(scheduled && r.id==='blossom' && p.id==='food'?'广汉连山镇回锅肉':p.mapQuery)}" target="_blank" rel="noopener noreferrer">地图导航${icon('external')}</a></div><div class="trip-row__controls"><button type="button" data-move="up" data-index="${index}" aria-label="上移${esc(p.name)}"${index===0?' disabled':''}>${icon('arrow-up')}</button><button type="button" data-move="down" data-index="${index}" aria-label="下移${esc(p.name)}"${index===state.stops.length-1?' disabled':''}>${icon('arrow-down')}</button><label class="sr-only" for="day-${p.id}">安排${esc(p.name)}在第几天</label><select id="day-${p.id}" data-stop-day="${index}"><option value="1"${s.day===1?' selected':''}>第一天</option><option value="2"${s.day===2?' selected':''}>第二天</option></select><button type="button" class="trip-remove" data-remove="${index}" aria-label="移除${esc(p.name)}">移除</button></div></div>`;
       list.append(article);
     });
     const saved=$('[data-saved-places]');

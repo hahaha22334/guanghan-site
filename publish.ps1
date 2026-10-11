@@ -70,7 +70,8 @@ $RequiredPages = @(
     "my-trip.html",
     "guide.html",
     "explore.html",
-    "travel.html"
+    "travel.html",
+    "book.html"
 )
 $RequiredFiles = $RequiredPages + @(
     "assets/css/tokens.css",

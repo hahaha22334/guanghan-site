@@ -159,11 +159,13 @@
   if (passport?.showModal) {
     const key='guanghan-reading-passport-v1', ids=guide.places.map(p=>p.id);
     const filename=location.pathname.split('/').pop();
-    const current=guide.places.find(p=>p.page===filename);
+    const pageCurrent=guide.places.find(p=>p.page===filename);
+    let current=pageCurrent;
     let collected=[];
     try { collected=normalizePassport(JSON.parse(localStorage.getItem(key)||'[]'),ids); } catch { /* Ignore malformed or unavailable storage. */ }
     const render=()=>{
       $('[data-passport-count]').textContent=String(collected.length);
+      document.dispatchEvent(new CustomEvent('guanghan:passportchange',{detail:{count:collected.length}}));
       $('[data-passport-progress]').textContent=`${collected.length} / ${ids.length} 枚印章`;
       $$('[data-stamp]',passport).forEach(link=>{
         const has=collected.includes(link.dataset.stamp);
@@ -180,10 +182,17 @@
         action.innerHTML=next ? `<a class="btn btn-primary" href="${next.page}">读下一段故事${icon('arrow-right')}</a>` : `<a class="btn btn-primary" href="my-trip.html">七枚集齐，安排一次出发${icon('arrow-right')}</a>`;
       }
     };
-    $('[data-passport-open]').addEventListener('click',event=>{render();openDialog(passport,event.currentTarget);});
+    $('[data-passport-open]').addEventListener('click',event=>{current=pageCurrent;render();openDialog(passport,event.currentTarget);});
+    document.addEventListener('guanghan:passportopen',event=>{
+      const candidate=guide.places.find(p=>p.id===event.detail?.place);
+      current=filename==='book.html' && candidate ? candidate : pageCurrent;
+      render();openDialog(passport,event.detail?.opener || $('[data-pet-open]') || $('[data-passport-open]'));
+      if(event.detail?.collect && current) $('[data-collect-stamp]',passport)?.click();
+    });
     passport.addEventListener('click',event=>{
       if(!event.target.closest('[data-collect-stamp]') || !current || collected.includes(current.id)) return;
       collected.push(current.id);
+      document.dispatchEvent(new CustomEvent('guanghan:stamp',{detail:{place:current.id}}));
       try { localStorage.setItem(key,JSON.stringify(collected)); } catch {
         $('[data-passport-storage]').textContent='浏览器暂时不能保存印章；本次打开页面时仍可使用。';
       }

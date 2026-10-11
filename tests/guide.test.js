@@ -37,7 +37,7 @@ test('导图覆盖所有公开内容页，路线节点使用有效的路线选�
   const {branches} = require('../scripts/build-discovery');
   const links = branches.flatMap(b=>[b.link,...b.groups.flatMap(g=>g.links.map(l=>l[1]))]);
   const linkedPages = new Set(links.map(l=>l.split(/[?#]/)[0]));
-  for (const page of [...data.places.map(p=>p.page),'explore.html','travel.html','routes.html','my-trip.html']) {
+  for (const page of [...data.places.map(p=>p.page),'book.html','explore.html','travel.html','routes.html','my-trip.html']) {
     assert.ok(linkedPages.has(page),'导图无法到达 '+page);
   }
   for (const href of links.filter(l=>l.includes('?route='))) {

@@ -15,9 +15,10 @@ const expectedPages = [
   'my-trip.html',
   'guide.html',
   'explore.html',
-  'travel.html'
+  'travel.html',
+  'book.html'
 ];
-const detailPages = expectedPages.filter((file) => !['index.html', 'routes.html', 'my-trip.html', 'guide.html', 'explore.html', 'travel.html'].includes(file));
+const detailPages = expectedPages.filter((file) => !['index.html', 'routes.html', 'my-trip.html', 'guide.html', 'explore.html', 'travel.html', 'book.html'].includes(file));
 const errors = [];
 const warnings = [];
 const htmlByFile = new Map();

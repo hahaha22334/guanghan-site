@@ -45,9 +45,9 @@ test('旅行书章节分享地址唯一，联游与七地点阅读印章保持�
   assert.match(book.chapters.find(c=>c.id==='season').note,/没有实时花情/);
   assert.ok(fs.readFileSync(path.join(__dirname,'../sitemap.xml'),'utf8').includes('/book.html'));
 });
-test('九套宠物动作保持四列两行、透明背景，首屏不一次加载全部动作',async()=>{
+test('九套宠物动作保持四列四行、透明背景，首屏不一次加载全部动作',async()=>{
   const actions=['idle','wave','pet','hop','think','talk','point','stamp','sleep'];
-  for(const action of actions){const m=await sharp(path.join(__dirname,'../assets/pet',action+'.webp')).metadata();assert.equal(m.width,1024);assert.equal(m.height,512);assert.equal(m.hasAlpha,true);}
+  for(const action of actions){const m=await sharp(path.join(__dirname,'../assets/pet',action+'.webp')).metadata();assert.equal(m.width,1024);assert.equal(m.height,1024);assert.equal(m.hasAlpha,true);}
   const source=fs.readFileSync(path.join(__dirname,'../assets/js/companion.js'),'utf8');
   assert.ok(!source.includes('states.forEach(load)'));
 });

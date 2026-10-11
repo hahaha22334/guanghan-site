@@ -1,7 +1,7 @@
 .companion { position:fixed;z-index:75;right:1rem;bottom:1rem; }
 .companion[hidden],.companion [hidden] { display:none!important; }
 .pet-launch { display:grid;justify-items:center;padding:0;border:0;background:transparent;color:var(--bronze-deep);min-width:100px; }
-.pet-sprite { display:block;width:112px;height:112px;background-image:url('../pet/idle.webp');background-size:400% 200%;background-position:0 0;flex-shrink:0; }
+.pet-sprite { display:block;width:124px;height:124px;background-image:url('../pet/idle.webp');background-size:400% 400%;background-position:0 0;flex-shrink:0; }
 .pet-label,.pet-wake { padding:.3rem .8rem;border:1px solid var(--gold-light);border-radius:2rem;background:var(--cream-pale);box-shadow:var(--shadow);font-size:.85rem; }
 .pet-wake { min-height:44px;color:var(--bronze-deep); }
 .pet-launch:hover .pet-label { background:var(--cream-dark); }
@@ -37,7 +37,7 @@
 .companion-eyebrow,.pet-response .pet-source,.pet-disclosure,.pet-message { font-size:.875rem; }
 .pet-shortcuts a,.pet-shortcuts button,.pet-suggestions button,.pet-play button { font-size:.9375rem; }
 @media(max-width:767px) {
-  .companion { right:.5rem;bottom:calc(.5rem + env(safe-area-inset-bottom)); }.pet-sprite { width:82px;height:82px; }.pet-launch { min-width:82px; }.pet-label { font-size:.875rem; }
+  .companion { right:.5rem;bottom:calc(.5rem + env(safe-area-inset-bottom)); }.pet-sprite { width:92px;height:92px; }.pet-launch { min-width:92px; }.pet-label { font-size:.875rem; }
   body:has(.mobile-action-bar) .companion { bottom:calc(5.3rem + env(safe-area-inset-bottom)); }
   .companion-dialog { inset:auto .5rem calc(.5rem + env(safe-area-inset-bottom)) .5rem;max-width:none;width:auto;max-height:calc(100dvh - 1rem - env(safe-area-inset-bottom));border-radius:16px 16px 10px 10px; }
   .companion-body { padding:1rem; }.pet-response { font-size:1rem; }

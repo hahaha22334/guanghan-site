@@ -2,7 +2,7 @@
   'use strict';
   const guide=window.GuanghanGuide,data=window.GuanghanCompanionData,logic=window.GuanghanCompanionLogic;
   const dock=document.querySelector('[data-companion]'),dialog=document.querySelector('[data-companion-dialog]');
-  if(!guide || !data || !logic || !dock || !dialog?.showModal) return;
+  if(!guide || !data || !logic || !dock || !dialog?.showModal || typeof window.GuanghanPageFilename!=='function') return;
   const $=s=>document.querySelector(s),sprites=[...document.querySelectorAll('[data-pet-sprite]')];
   const states=['idle','wave','pet','hop','think','talk','point','stamp','sleep'];
   let timer,idleTimer,token=0,sleeping=false;
@@ -29,7 +29,7 @@
   function storeSleep(){try{localStorage.setItem('guanghan-pet-v1',sleeping?'sleep':'awake');}catch{/* Session-only preference. */}}
   function syncSleep(){ $('[data-pet-open]').hidden=sleeping;$('[data-pet-wake]').hidden=!sleeping; }
   try{sleeping=localStorage.getItem('guanghan-pet-v1')==='sleep';}catch{/* Keep available. */}
-  const filename=location.pathname.split('/').pop();
+  const filename=window.GuanghanPageFilename(location.pathname);
   const context=()=>{
     const chapter=document.querySelector('[data-book-chapter]:not([hidden])')?.id;
     const bookPlaces={eyes:'sanxingdui',city:'luocheng',tea:'oldtown',taste:'food',lake:'jinyan',season:'lianshan'};

@@ -11,8 +11,13 @@
     return choices[Math.floor(fraction * choices.length)]?.id || null;
   };
   const canAutoplay = ({enabled,paused,hovered,focused,visible,hidden}) => enabled && !paused && !hovered && !focused && visible && !hidden;
-  if (typeof module !== 'undefined' && module.exports) module.exports = {normalizePassport,pickInspiration,canAutoplay};
+  const pageFilename = pathname => {
+    const name=String(pathname || '').replace(/\/+$/,'').split('/').pop() || 'index';
+    return name.endsWith('.html') ? name : name+'.html';
+  };
+  if (typeof module !== 'undefined' && module.exports) module.exports = {normalizePassport,pickInspiration,canAutoplay,pageFilename};
   if (typeof document === 'undefined') return;
+  window.GuanghanPageFilename=pageFilename;
 
   const $ = (s,scope=document) => scope.querySelector(s);
   const $$ = (s,scope=document) => [...scope.querySelectorAll(s)];
@@ -158,7 +163,7 @@
   const passport=$('[data-passport-dialog]');
   if (passport?.showModal) {
     const key='guanghan-reading-passport-v1', ids=guide.places.map(p=>p.id);
-    const filename=location.pathname.split('/').pop();
+    const filename=pageFilename(location.pathname);
     const pageCurrent=guide.places.find(p=>p.page===filename);
     let current=pageCurrent;
     let collected=[];

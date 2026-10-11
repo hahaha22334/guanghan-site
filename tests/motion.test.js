@@ -1,7 +1,16 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const {normalizePassport,pickInspiration,canAutoplay} = require('../assets/js/motion');
+const {normalizePassport,pickInspiration,canAutoplay,pageFilename} = require('../assets/js/motion');
 const {places} = require('../content/guide.json');
+
+test('Cloudflare 简化地址与本地 HTML 地址识别为同一页面',()=>{
+  for(const filename of ['index.html','book.html',...places.map(p=>p.page)]) {
+    assert.equal(pageFilename('/'+filename),filename);
+    assert.equal(pageFilename('/'+filename.replace(/\.html$/,'')),filename);
+    assert.equal(pageFilename('/'+filename.replace(/\.html$/,'')+'/'),filename);
+  }
+  assert.equal(pageFilename('/'),'index.html');
+});
 
 test('passport rejects malformed, stale, and duplicate storage without losing valid stamps',()=>{
   const ids=places.map(p=>p.id);

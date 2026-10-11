@@ -227,6 +227,8 @@
     if (state.route) $('[data-route-select]').value=state.route;
     $$('[data-check]').forEach(input=>input.checked=!!state.checks[input.dataset.check]);
     $('[data-checklist-progress]').textContent=`${$$('[data-check]').filter(input=>input.checked).length} / 4 项已准备`;
+    const meter = $('[data-checklist-meter]');
+    if (meter) meter.value = $$('[data-check]').filter(input=>input.checked).length;
     $$('[data-download-trip],[data-copy-trip],[data-share-trip],[data-print-trip],[data-clear-trip]').forEach(b=>b.disabled=!state.stops.length);
   }
   function formatDuration(minutes) { const h=Math.floor(minutes/60),m=minutes%60; return `${h} 小时${m?' '+m+' 分钟':''}`; }

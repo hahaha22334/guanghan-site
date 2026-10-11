@@ -1,0 +1,33 @@
+{
+  "configuredAt": "2026-10-11",
+  "skills": [
+    {
+      "name": "frontend-design",
+      "repository": "https://github.com/anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "upstreamPath": "skills/frontend-design",
+      "license": "Apache-2.0",
+      "localPath": ".agents/skills/frontend-design",
+      "skillSha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+    },
+    {
+      "name": "web-design-guidelines",
+      "repository": "https://github.com/vercel-labs/agent-skills",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "upstreamPath": "skills/web-design-guidelines",
+      "license": "MIT",
+      "localPath": ".agents/skills/web-design-guidelines",
+      "skillSha256": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "a38d04c3d5c298c851dbe5e6ee1965ee3de42cb5",
+      "license": "MIT",
+      "localPath": ".agents/skills/ui-ux-pro-max",
+      "skillSha256": "92218b7dcfb25da3913abb298ad318c728a4163f3b81eab736b91b23a40c4803",
+      "copiedFrom": "../.pi/skills/ui-ux-pro-max",
+      "release": "v2.15.0"
+    }
+  ]
+}

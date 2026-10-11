@@ -1,0 +1,85 @@
+{
+  "reviewedAt": "2026-10-11",
+  "files": [
+    {
+      "repository": "markmead/hyperui",
+      "ref": "252efcfe39161db6e67cd877da001ee248d2bbf6",
+      "path": "public/examples/marketing/blog-cards/4.html",
+      "sha256": "8649d09ea28a4b4d15ed124ce0c325a591b9390f15cd99fc28656515b44cb038",
+      "localPath": "design-system/references/hyperui/public/examples/marketing/blog-cards/4.html",
+      "url": "https://raw.githubusercontent.com/markmead/hyperui/252efcfe39161db6e67cd877da001ee248d2bbf6/public/examples/marketing/blog-cards/4.html"
+    },
+    {
+      "repository": "markmead/hyperui",
+      "ref": "252efcfe39161db6e67cd877da001ee248d2bbf6",
+      "path": "public/examples/application/steps/2.html",
+      "sha256": "f96b7768402cf6b4f1baa3cc0e50830a0907daa575bb7278cc497fb7e2fc31de",
+      "localPath": "design-system/references/hyperui/public/examples/application/steps/2.html",
+      "url": "https://raw.githubusercontent.com/markmead/hyperui/252efcfe39161db6e67cd877da001ee248d2bbf6/public/examples/application/steps/2.html"
+    },
+    {
+      "repository": "markmead/hyperui",
+      "ref": "252efcfe39161db6e67cd877da001ee248d2bbf6",
+      "path": "public/examples/application/timelines/1.html",
+      "sha256": "2973b8c5f3b6e997410f476150e775c5b885c8a6d2a004a98b0229aaf29a1900",
+      "localPath": "design-system/references/hyperui/public/examples/application/timelines/1.html",
+      "url": "https://raw.githubusercontent.com/markmead/hyperui/252efcfe39161db6e67cd877da001ee248d2bbf6/public/examples/application/timelines/1.html"
+    },
+    {
+      "repository": "markmead/hyperui",
+      "ref": "252efcfe39161db6e67cd877da001ee248d2bbf6",
+      "path": "LICENSE",
+      "sha256": "60e0bb845a95da072acc1ada114cf8ce325347ed9d5f802d8d7fd9b511248f98",
+      "localPath": "design-system/references/hyperui/LICENSE",
+      "url": "https://raw.githubusercontent.com/markmead/hyperui/252efcfe39161db6e67cd877da001ee248d2bbf6/LICENSE"
+    },
+    {
+      "repository": "uiverse-io/galaxy",
+      "ref": "adbd2adde0a299a3956ea288fb444ec01891ca41",
+      "path": "Toggle-switches/cssbuttons-io_mean-dolphin-24.html",
+      "sha256": "0798607bd79afa26fa05d5ae10e3c1d743bfa9487353ca7a07f40f678a304398",
+      "localPath": "design-system/references/uiverse/Toggle-switches/cssbuttons-io_mean-dolphin-24.html",
+      "url": "https://raw.githubusercontent.com/uiverse-io/galaxy/adbd2adde0a299a3956ea288fb444ec01891ca41/Toggle-switches/cssbuttons-io_mean-dolphin-24.html"
+    },
+    {
+      "repository": "uiverse-io/galaxy",
+      "ref": "adbd2adde0a299a3956ea288fb444ec01891ca41",
+      "path": "README.md",
+      "sha256": "9ba53017977494b2a6efc86916c9f272d7592a3d1f1fa0f71443e46aed5283df",
+      "localPath": "design-system/references/uiverse/README.md",
+      "url": "https://raw.githubusercontent.com/uiverse-io/galaxy/adbd2adde0a299a3956ea288fb444ec01891ca41/README.md"
+    },
+    {
+      "repository": "uiverse-io/galaxy",
+      "ref": "adbd2adde0a299a3956ea288fb444ec01891ca41",
+      "path": "LICENSE",
+      "sha256": "7feadcd7a611d37a4546c99f63a162bdf65656137828ebcba92e57dccfa368a4",
+      "localPath": "design-system/references/uiverse/LICENSE",
+      "url": "https://raw.githubusercontent.com/uiverse-io/galaxy/adbd2adde0a299a3956ea288fb444ec01891ca41/LICENSE"
+    },
+    {
+      "repository": "codrops/SlideshowAnimations",
+      "ref": "8f9ee4001e0c786ec617f7f729272c4d5a0830a2",
+      "path": "js/demo1/index.js",
+      "sha256": "9845ac3d240b81f13d36e4c5df7ead5c62ab9ad8ce2cda1f941f766c57b3696e",
+      "localPath": "design-system/references/codrops/js/demo1/index.js",
+      "url": "https://raw.githubusercontent.com/codrops/SlideshowAnimations/8f9ee4001e0c786ec617f7f729272c4d5a0830a2/js/demo1/index.js"
+    },
+    {
+      "repository": "codrops/SlideshowAnimations",
+      "ref": "8f9ee4001e0c786ec617f7f729272c4d5a0830a2",
+      "path": "LICENSE",
+      "sha256": "85131f2bb7714dc895ff5d7d68db65acc5ad0e5dfd72162869fc8d63dec06056",
+      "localPath": "design-system/references/codrops/LICENSE",
+      "url": "https://raw.githubusercontent.com/codrops/SlideshowAnimations/8f9ee4001e0c786ec617f7f729272c4d5a0830a2/LICENSE"
+    },
+    {
+      "repository": "vercel-labs/web-interface-guidelines",
+      "ref": "main",
+      "path": "command.md",
+      "sha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
+      "localPath": "design-system/references/vercel/command.md",
+      "url": "https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md"
+    }
+  ]
+}

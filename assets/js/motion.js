@@ -104,6 +104,10 @@
         scene.setAttribute('aria-hidden',String(i!==index));
       });
       buttons.forEach((b,i)=>b.setAttribute('aria-pressed',String(i===index)));
+      const caption = $('[data-hero-caption]',hero);
+      const kicker = $('[data-hero-kicker]',hero);
+      if (caption) caption.textContent = scenes[index].dataset.caption;
+      if (kicker) kicker.textContent = scenes[index].dataset.kicker;
       if (announce) $('[data-hero-status]',hero).textContent = `正在看：${buttons[index].textContent.trim()}`;
       schedule();
     };
